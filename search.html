@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html{
+  min-height:100%;
+  position:relative;
+}
+body{
+    height:100%;
+}
+#filters{
+  background-color: #cccccc;
+  width:30%;
+  height:100%;
+  position:fixed!important;
+  z-index:1;
+  overflow:auto;
+}
+#courses{
+  background-color: #ddeeee;
+  height:100%;
+  position:fixed!important;
+  width: 45%;
+  z-index:1;
+  overflow:auto;
+  margin-left:25%;
+}
+#drafts{
+  background-color: #cccccc;
+  width:30%;
+  height:100%;
+  position:fixed!important;
+  right:0;
+  z-index:1;
+  overflow:auto;
+}
+#table_container{
+  margin:0 auto;
+}
+#advanced{
+  background-color: #eeeedd;
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+  padding-left: 25%;
+  border-spacing: 0px;
+  border: 2px solid gray;
+}
+
+#advanced span {
+  background-color: #ddddcc;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+#advanced:hover {
+  cursor: pointer;
+}
+table{
+  background-color: #dddddd;
+  border-spacing: 0px;
+  border: 2px solid black;
+  empty-cells: show;
+  border-collapse: collapse;
+  text-align: center;
+}
+th {
+    background-color: #bbbbbb;
+    border: 1px solid black;
+}
+th#day{
+  width: 60px;
+}
+td{
+  border-left: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+<h1>(toolbar will be copied from other page)</h1>
+<!-- Filters Sidebar-->
+  <div id="filters">
+    <form>
+      <input name="search" type="text">
+    </form>
+    <form> Subject
+    <select name="subject" size="5" multiple>
+      <option value="cs">Computer Science</option>
+    </select>
+    </form>
+    <form> Level
+    <select name="level">
+      <option value="def">Any</option>
+      <option value="1x">1000</option>
+      <option value="2x">2000</option>
+      <option value="3x">3000</option>
+      <option value="4x">4000</option>
+      <option value="5x">5000</option>
+      <option value="6x">6000</option>
+      <option value="7x">7000</option>
+      <option value="8x">8000</option>
+      <option value="9x">9000</option>
+    </select>
+    </form>
+    <form> Semester
+    <select name="semester">
+      <option value="f">Fall</option>
+      <option value="w">Winter</option>
+      <option value="s">Summer</option>
+    </select>
+    </form>
+    <div id="advanced">
+      <p>\/ &nbsp;(Advanced Filters)&nbsp; \/</p>
+    </div>
+    <div id="requirements">
+      <h2>Degree Requirements</h2>
+    </div>
+  </div>
+<!-- Courses Listings -->
+  <div id="courses">
+    <p> courses </p>
+  </div>
+<!-- Drafts Sidebar-->
+  <div id="drafts">
+    <p> drafts </p>
+    <form> View:
+    <select name="drafts">
+      <option value="d1">My Draft 1</option>
+      <option value="d2">My Draft 2</option>
+    </select>
+    </form>
+    <br> <br>
+      <table id="fall">
+      <tr>
+        <th colspan="8">Fall</th>
+      </tr>
+      <tr>
+        <th>Time</th>
+        <th id="day">Sun</th>
+        <th id="day">Mon</th>
+        <th id="day">Tues</th>
+        <th id="day">Wed</th>
+        <th id="day">Thurs</th>
+        <th id="day">Fri</th>
+        <th id="day">Sat</th>
+      </tr>
+      <tr>
+        <th> 7:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 8:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 9:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 10:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 11:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 12:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 1:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 2:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 3:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 4:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 5:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 6:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 7:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 8:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <br><br>
+      <table id="winter">
+      <tr>
+        <th colspan="8">Winter</th>
+      </tr>
+      <tr>
+        <th>Time</th>
+        <th id="day">Sun</th>
+        <th id="day">Mon</th>
+        <th id="day">Tues</th>
+        <th id="day">Wed</th>
+        <th id="day">Thurs</th>
+        <th id="day">Fri</th>
+        <th id="day">Sat</th>
+      </tr>
+      <tr>
+        <th> 7:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 8:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 9:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 10:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 11:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 12:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 1:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 2:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 3:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 4:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 5:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 6:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 7:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th> 8:00 </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+
+</div>
+</body>
+</html>

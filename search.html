@@ -8,6 +8,38 @@ html{
 }
 body{
     height:100%;
+    background-color: blue;
+}
+div.section{
+  background-color: green;
+  padding: 3px;
+  padding-left: 30px;
+  padding-right: 10px;
+  margin-left: 2%;
+  margin-right: 4%;
+  margin-bottom: 1%;
+  border: 3px solid white ;
+  height: 10%;
+}
+div.btn{
+  background-color: #aaffaa;
+  text-align: center;
+  border: 2px outset green;
+  padding: 10px;
+  width: 15%;
+  margin:auto;
+}
+div.btn:hover{
+  cursor: pointer;
+}
+div.btn_reqs{
+  background-color: #eeeedd;
+  text-align: center;
+  border: 2px solid black;
+  padding: 10px;
+}
+div.btn_reqs:hover{
+  cursor: pointer;
 }
 #filters{
   background-color: #cccccc;
@@ -18,7 +50,7 @@ body{
   overflow:auto;
 }
 #courses{
-  background-color: #ddeeee;
+  background-color: #888888;
   height:100%;
   position:fixed!important;
   width: 45%;
@@ -38,25 +70,34 @@ body{
 #table_container{
   margin:0 auto;
 }
+#search{
+  background-color: #e2e2e2;
+  padding: 5px;
+}
 #advanced{
   background-color: #eeeedd;
   padding-top: 0.5px;
   padding-bottom: 0.5px;
-  padding-left: 25%;
+  text-align: center;
   border-spacing: 0px;
   border: 2px solid gray;
-}
-
-#advanced span {
-  background-color: #ddddcc;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
 }
 #advanced:hover {
   cursor: pointer;
 }
+input{
+  width:60%;
+  padding: 6px 12px;
+  margin: 8px 10%;
+  box-sizing: border-box;
+  border: 2px inset cyan;
+  border-radius: 8px;
+}
+form{
+  padding: 5px;
+}
 table{
+  margin-left: 3%;
   background-color: #dddddd;
   border-spacing: 0px;
   border: 2px solid black;
@@ -81,17 +122,26 @@ td{
 <h1>(toolbar will be copied from other page)</h1>
 <!-- Filters Sidebar-->
   <div id="filters">
+    <div id="search">
     <form>
+      Search
       <input name="search" type="text">
     </form>
-    <form> Subject
+  </div>
+  Subject
+    <form>
     <select name="subject" size="5" multiple>
+      <option value="def" selected=true;>(All)</option>
+      <option value="no">Accoutning</option>
       <option value="cs">Computer Science</option>
+      <option value="no">Music</option>
+      <option value="no">Marketing</option>
+      <option value="no">Mathematics</option>
     </select>
     </form>
     <form> Level
     <select name="level">
-      <option value="def">Any</option>
+      <option value="def" selected=true;>Any</option>
       <option value="1x">1000</option>
       <option value="2x">2000</option>
       <option value="3x">3000</option>
@@ -105,7 +155,7 @@ td{
     </form>
     <form> Semester
     <select name="semester">
-      <option value="f">Fall</option>
+      <option value="f" selected=true;>Fall</option>
       <option value="w">Winter</option>
       <option value="s">Summer</option>
     </select>
@@ -113,13 +163,31 @@ td{
     <div id="advanced">
       <p>\/ &nbsp;(Advanced Filters)&nbsp; \/</p>
     </div>
+    <br>
+    <div class="btn" id="clear" style="float:left">Clear</div>
+    <div class="btn" id="enter">Enter</div>
     <div id="requirements">
       <h2>Degree Requirements</h2>
+      <span> <i>Computer Science: Major</i> </span>
+      <br><br>
+      <div class="btn_reqs" id="year1">1000 Level</div>
+      <div class="btn_reqs" id="year2">2000 Level</div>
+      <div class="btn_reqs" id="year3">3000 Level</div>
+      <div class="btn_reqs" id="year4">4000 Level</div>
     </div>
   </div>
 <!-- Courses Listings -->
   <div id="courses">
     <p> courses </p>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
+    <div class="section"> <p> test </p></div>
   </div>
 <!-- Drafts Sidebar-->
   <div id="drafts">
@@ -129,6 +197,8 @@ td{
       <option value="d1">My Draft 1</option>
       <option value="d2">My Draft 2</option>
     </select>
+    <div class="btn" id="newDraft" style="float:right;margin-right:5%;">Create New Draft</div>
+    <br><br><br>
     </form>
     <br> <br>
       <table id="fall">
@@ -442,6 +512,7 @@ td{
         <td></td>
       </tr>
     </table>
+    <br><br><br><br><br><br><br>
   </div>
 
 

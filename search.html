@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+  <style>
   html{
     min-height:100%;
     position:relative;
   }
   body{
-    height:100%;
+    min-height:100%;
     background-color: white;
+        overflow: auto;
+  }
+  #wrapper{
+    min-height:100%;
+    padding-bottom: 30px;
   }
   div.section{
     background-color: green;
     padding: 3px;
     padding-left: 30px;
     padding-right: 10px;
-    margin-left: 2%;
-    margin-right: 4%;
-    margin-bottom: 1%;
+    margin: 2%;
     border: 3px solid white ;
     height: 10%;
   }
@@ -47,41 +50,39 @@
     cursor: pointer;
   }
   #filters{
-    margin-top: auto;
+    float:left;
     background-color: #cccccc;
     width:22%;
-    height: 100%;
-    margin-left: 2%;
-    position:fixed!important;
-    left:0;
+    min-height:100%;
+    position: auto;
     z-index:1;
-    overflow:auto;
+    margin-left: 1%;
+  }
+  #courses{
+    margin-left: 1%;
+    margin-right: 1%;
+    float:left;
+    background-color: #888888;
+    width: 46%;
+    min-height:100%;
+    z-index:1;
+    position: auto;
+  }
+  #drafts{
+    position: auto;
+    background-color: #cccccc;
+    width:29%;
+    min-height:100%;
+    float: right;
+    z-index:1;
   }
   #topPadding{
     background-color: #eeeeee;
     padding:5px;
     height:5%;
   }
-  #courses{
-    background-color: #888888;
-    height:100%;
-    position:fixed!important;
-    width: 46%;
-    z-index:1;
-    overflow:auto;
-    margin-left:24%;
-  }
-  #drafts{
-    background-color: #cccccc;
-    width:29%;
-    height:100%;
-    position:fixed!important;
-    right:0;
-    z-index:1;
-    overflow:auto;
-  }
   #drafts_wrapper{
-    padding-left: 4%;
+    padding: 4%;
   }
   #table_container{
     margin:0 auto;
@@ -132,7 +133,7 @@
 </style>
 </head>
 <body>
-<div id="wrapper">
+  <div id="wrapper">
     <h1>(toolbar will be copied from other page)</h1>
     <!-- Drafts Sidebar-->
     <div id="drafts">
@@ -460,26 +461,6 @@
         <br><br><br><br><br><br><br>
       </div>
     </div>
-    <!-- Courses Listings -->
-    <div id="courses">
-      <!-- Search Bar-->
-      <div id="search">
-        <form>
-          Search
-          <input name="search" type="text" placeholder="Search by course code, name, or instructor.">
-        </form>
-      </div>
-      <p> courses </p>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-    </div>
     <!-- Filters Sidebar-->
     <div id="filters">
       <div id="topPadding"><h2>Search Filters</h2></div>
@@ -530,6 +511,26 @@
         <div class="btn_reqs" id="year3">3000 Level</div>
         <div class="btn_reqs" id="year4">4000 Level</div>
       </div>
+    </div>
+    <!-- Courses Listings -->
+    <div id="courses">
+      <!-- Search Bar-->
+      <div id="search">
+        <form>
+          Search
+          <input name="search" type="text" placeholder="Search by course code, name, or instructor.">
+        </form>
+      </div>
+      <br>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
     </div>
 
   </div>

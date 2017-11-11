@@ -2,520 +2,536 @@
 <html>
 <head>
 <style>
-html{
-  min-height:100%;
-  position:relative;
-}
-body{
+  html{
+    min-height:100%;
+    position:relative;
+  }
+  body{
     height:100%;
-    background-color: blue;
-}
-div.section{
-  background-color: green;
-  padding: 3px;
-  padding-left: 30px;
-  padding-right: 10px;
-  margin-left: 2%;
-  margin-right: 4%;
-  margin-bottom: 1%;
-  border: 3px solid white ;
-  height: 10%;
-}
-div.btn{
-  background-color: #aaffaa;
-  text-align: center;
-  border: 2px outset green;
-  padding: 10px;
-  width: 15%;
-  margin:auto;
-}
-div.btn:hover{
-  cursor: pointer;
-}
-div.btn_reqs{
-  background-color: #eeeedd;
-  text-align: center;
-  border: 2px solid black;
-  padding: 10px;
-}
-div.btn_reqs:hover{
-  cursor: pointer;
-}
-#filters{
-  background-color: #cccccc;
-  width:30%;
-  height:100%;
-  position:fixed!important;
-  z-index:1;
-  overflow:auto;
-}
-#courses{
-  background-color: #888888;
-  height:100%;
-  position:fixed!important;
-  width: 45%;
-  z-index:1;
-  overflow:auto;
-  margin-left:25%;
-}
-#drafts{
-  background-color: #cccccc;
-  width:30%;
-  height:100%;
-  position:fixed!important;
-  right:0;
-  z-index:1;
-  overflow:auto;
-}
-#table_container{
-  margin:0 auto;
-}
-#search{
-  background-color: #e2e2e2;
-  padding: 5px;
-}
-#advanced{
-  background-color: #eeeedd;
-  padding-top: 0.5px;
-  padding-bottom: 0.5px;
-  text-align: center;
-  border-spacing: 0px;
-  border: 2px solid gray;
-}
-#advanced:hover {
-  cursor: pointer;
-}
-input{
-  width:60%;
-  padding: 6px 12px;
-  margin: 8px 10%;
-  box-sizing: border-box;
-  border: 2px inset cyan;
-  border-radius: 8px;
-}
-form{
-  padding: 5px;
-}
-table{
-  margin-left: 3%;
-  background-color: #dddddd;
-  border-spacing: 0px;
-  border: 2px solid black;
-  empty-cells: show;
-  border-collapse: collapse;
-  text-align: center;
-}
-th {
+    background-color: white;
+  }
+  div.section{
+    background-color: green;
+    padding: 3px;
+    padding-left: 30px;
+    padding-right: 10px;
+    margin-left: 2%;
+    margin-right: 4%;
+    margin-bottom: 1%;
+    border: 3px solid white ;
+    height: 10%;
+  }
+  .btn{
+    background-color: #aaffaa;
+    text-align: center;
+    border: 2px outset green;
+    padding: 10px;
+    width: 15%;
+  }
+  .btn#addDraft{
+    background-color: green;
+    text-align: center;
+    border: 1px outset green;
+    padding: 1px;
+  }
+  .btn:hover{
+    cursor: pointer;
+  }
+  .btn_reqs{
+    background-color: #eeeedd;
+    text-align: center;
+    border: 2px solid black;
+    padding: 10px;
+  }
+  div.btn_reqs:hover{
+    cursor: pointer;
+  }
+  #filters{
+    margin-top: auto;
+    background-color: #cccccc;
+    width:22%;
+    height: 100%;
+    margin-left: 2%;
+    position:fixed!important;
+    left:0;
+    z-index:1;
+    overflow:auto;
+  }
+  #topPadding{
+    background-color: #eeeeee;
+    padding:5px;
+    height:5%;
+  }
+  #courses{
+    background-color: #888888;
+    height:100%;
+    position:fixed!important;
+    width: 46%;
+    z-index:1;
+    overflow:auto;
+    margin-left:24%;
+  }
+  #drafts{
+    background-color: #cccccc;
+    width:29%;
+    height:100%;
+    position:fixed!important;
+    right:0;
+    z-index:1;
+    overflow:auto;
+  }
+  #drafts_wrapper{
+    padding-left: 4%;
+  }
+  #table_container{
+    margin:0 auto;
+  }
+  #search{
+    background-color: #e2e2e2;
+    padding: 5px;
+    height: 5%;
+  }
+  #advanced{
+    background-color: #eeeedd;
+    text-align: center;
+    border-spacing: 0px;
+    border: 2px solid gray;
+  }
+  #advanced:hover {
+    cursor: pointer;
+  }
+  input{
+    width:60%;
+    padding: 6px 12px;
+    margin-left: 2%;
+    box-sizing: border-box;
+    border: 2px inset cyan;
+    border-radius: 8px;
+  }
+  form{
+    padding: 5px;
+  }
+  table{
+    background-color: #dddddd;
+    border-spacing: 0px;
+    border: 2px solid black;
+    empty-cells: show;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  th {
     background-color: #bbbbbb;
     border: 1px solid black;
-}
-th#day{
-  width: 60px;
-}
-td{
-  border-left: 1px solid black;
-}
+  }
+  th#day{
+    width: 60px;
+  }
+  td{
+    border-left: 1px solid black;
+  }
 </style>
 </head>
 <body>
 <div id="wrapper">
-<h1>(toolbar will be copied from other page)</h1>
-<!-- Filters Sidebar-->
-  <div id="filters">
-    <div id="search">
-    <form>
-      Search
-      <input name="search" type="text">
-    </form>
-  </div>
-  Subject
-    <form>
-    <select name="subject" size="5" multiple>
-      <option value="def" selected=true;>(All)</option>
-      <option value="no">Accoutning</option>
-      <option value="cs">Computer Science</option>
-      <option value="no">Music</option>
-      <option value="no">Marketing</option>
-      <option value="no">Mathematics</option>
-    </select>
-    </form>
-    <form> Level
-    <select name="level">
-      <option value="def" selected=true;>Any</option>
-      <option value="1x">1000</option>
-      <option value="2x">2000</option>
-      <option value="3x">3000</option>
-      <option value="4x">4000</option>
-      <option value="5x">5000</option>
-      <option value="6x">6000</option>
-      <option value="7x">7000</option>
-      <option value="8x">8000</option>
-      <option value="9x">9000</option>
-    </select>
-    </form>
-    <form> Semester
-    <select name="semester">
-      <option value="f" selected=true;>Fall</option>
-      <option value="w">Winter</option>
-      <option value="s">Summer</option>
-    </select>
-    </form>
-    <div id="advanced">
-      <p>\/ &nbsp;(Advanced Filters)&nbsp; \/</p>
+    <h1>(toolbar will be copied from other page)</h1>
+    <!-- Drafts Sidebar-->
+    <div id="drafts">
+      <div id="topPadding"><h2> My Scheduling Drafts </h2></div>
+      <div id="drafts_wrapper">
+        <form> View:
+          <select name="drafts" class="drafts">
+            <option value="d1">My Draft 1</option>
+            <option value="d2">My Draft 2</option>
+          </select>
+          <span class="btn" id="addDraft">+ Add New</span>
+        </form>
+        <br>
+        <table id="fall">
+          <tr>
+            <th colspan="8">Fall</th>
+          </tr>
+          <tr>
+            <th>Time</th>
+            <th id="day">Sun</th>
+            <th id="day">Mon</th>
+            <th id="day">Tues</th>
+            <th id="day">Wed</th>
+            <th id="day">Thurs</th>
+            <th id="day">Fri</th>
+            <th id="day">Sat</th>
+          </tr>
+          <tr>
+            <th> 7:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 8:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 9:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 10:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 11:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 12:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 1:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 2:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 3:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 4:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 5:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 6:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 7:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 8:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <br><br>
+        <table id="winter">
+          <tr>
+            <th colspan="8">Winter</th>
+          </tr>
+          <tr>
+            <th>Time</th>
+            <th id="day">Sun</th>
+            <th id="day">Mon</th>
+            <th id="day">Tues</th>
+            <th id="day">Wed</th>
+            <th id="day">Thurs</th>
+            <th id="day">Fri</th>
+            <th id="day">Sat</th>
+          </tr>
+          <tr>
+            <th> 7:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 8:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 9:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 10:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 11:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 12:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 1:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 2:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 3:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 4:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 5:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 6:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 7:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th> 8:00 </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <br><br><br><br><br><br><br>
+      </div>
     </div>
-    <br>
-    <div class="btn" id="clear" style="float:left">Clear</div>
-    <div class="btn" id="enter">Enter</div>
-    <div id="requirements">
-      <h2>Degree Requirements</h2>
-      <span> <i>Computer Science: Major</i> </span>
-      <br><br>
-      <div class="btn_reqs" id="year1">1000 Level</div>
-      <div class="btn_reqs" id="year2">2000 Level</div>
-      <div class="btn_reqs" id="year3">3000 Level</div>
-      <div class="btn_reqs" id="year4">4000 Level</div>
+    <!-- Courses Listings -->
+    <div id="courses">
+      <!-- Search Bar-->
+      <div id="search">
+        <form>
+          Search
+          <input name="search" type="text" placeholder="Search by course code, name, or instructor.">
+        </form>
+      </div>
+      <p> courses </p>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
+      <div class="section"> <p> test </p></div>
     </div>
-  </div>
-<!-- Courses Listings -->
-  <div id="courses">
-    <p> courses </p>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-    <div class="section"> <p> test </p></div>
-  </div>
-<!-- Drafts Sidebar-->
-  <div id="drafts">
-    <p> drafts </p>
-    <form> View:
-    <select name="drafts">
-      <option value="d1">My Draft 1</option>
-      <option value="d2">My Draft 2</option>
-    </select>
-    <div class="btn" id="newDraft" style="float:right;margin-right:5%;">Create New Draft</div>
-    <br><br><br>
-    </form>
-    <br> <br>
-      <table id="fall">
-      <tr>
-        <th colspan="8">Fall</th>
-      </tr>
-      <tr>
-        <th>Time</th>
-        <th id="day">Sun</th>
-        <th id="day">Mon</th>
-        <th id="day">Tues</th>
-        <th id="day">Wed</th>
-        <th id="day">Thurs</th>
-        <th id="day">Fri</th>
-        <th id="day">Sat</th>
-      </tr>
-      <tr>
-        <th> 7:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 8:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 9:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 10:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 11:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 12:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 1:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 2:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 3:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 4:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 5:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 6:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 7:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 8:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    <br><br>
-      <table id="winter">
-      <tr>
-        <th colspan="8">Winter</th>
-      </tr>
-      <tr>
-        <th>Time</th>
-        <th id="day">Sun</th>
-        <th id="day">Mon</th>
-        <th id="day">Tues</th>
-        <th id="day">Wed</th>
-        <th id="day">Thurs</th>
-        <th id="day">Fri</th>
-        <th id="day">Sat</th>
-      </tr>
-      <tr>
-        <th> 7:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 8:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 9:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 10:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 11:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 12:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 1:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 2:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 3:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 4:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 5:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 6:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 7:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th> 8:00 </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    <br><br><br><br><br><br><br>
-  </div>
+    <!-- Filters Sidebar-->
+    <div id="filters">
+      <div id="topPadding"><h2>Search Filters</h2></div>
+      Subject
+      <form>
+        <select name="subject" size="5" multiple>
+          <option value="def" selected=true;>(All)</option>
+          <option value="no">Accoutning</option>
+          <option value="cs">Computer Science</option>
+          <option value="no">Music</option>
+          <option value="no">Marketing</option>
+          <option value="no">Mathematics</option>
+        </select>
+      </form>
+      <form> Level
+        <select name="level">
+          <option value="def" selected=true;>Any</option>
+          <option value="1x">1000</option>
+          <option value="2x">2000</option>
+          <option value="3x">3000</option>
+          <option value="4x">4000</option>
+          <option value="5x">5000</option>
+          <option value="6x">6000</option>
+          <option value="7x">7000</option>
+          <option value="8x">8000</option>
+          <option value="9x">9000</option>
+        </select>
+      </form>
+      <form> Semester
+        <select name="semester">
+          <option value="f" selected=true;>Fall</option>
+          <option value="w">Winter</option>
+          <option value="s">Summer</option>
+        </select>
+      </form>
+      <div id="advanced">
+        <p>Show Advanced Filters</p>
+      </div>
+      <br>
+      <span class="btn" id="clear" style="margin:auto;">Clear</span>
+      <span class="btn" id="enter">Enter</span>
+      <div id="requirements">
+        <h2>Degree Requirements</h2>
+        <span> <i>Computer Science: Major</i> </span>
+        <br><br>
+        <div class="btn_reqs" id="year1">1000 Level</div>
+        <div class="btn_reqs" id="year2">2000 Level</div>
+        <div class="btn_reqs" id="year3">3000 Level</div>
+        <div class="btn_reqs" id="year4">4000 Level</div>
+      </div>
+    </div>
 
-
-</div>
+  </div>
 </body>
 </html>

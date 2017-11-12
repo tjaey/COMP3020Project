@@ -4,17 +4,19 @@
   <script src="jquery-3.2.1.js"></script>
   <style>
   html{
+    height: 100%;
     min-height:100%;
     position:relative;
   }
   body{
+    height: 100%;
     min-height:100%;
     background-color: #bbccdd;
         overflow: scroll;
   }
   #wrapper{
-    min-height:100%;
     padding-bottom: 30px;
+    height: 100%;
   }
   div.section{
     background-color: green;
@@ -25,6 +27,16 @@
     border: 3px solid white ;
     height: 10%;
     display: none;
+    white-space: nowrap;
+  }
+  .alert{
+    background-color: red;
+    color:white;
+    display: inline-block;
+    margin: -4%;
+    padding: 3px;
+    width:100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .btn{
     background-color: #aaffaa;
@@ -36,11 +48,18 @@
   .btn#addDraft{
     background-color: green;
     text-align: center;
-    border: 1px outset green;
+    border: 1px solid green;
     padding: 1px;
+    border: 2px outset black;
+  }
+  .btn#addDraft:hover{
+    background-color: green;
+    border: 2px inset green;
   }
   .btn:hover{
     cursor: pointer;
+    border: 2px outset black;
+    background-color: green;
   }
   .btn_reqs{
     background-color: #eeeedd;
@@ -50,12 +69,12 @@
   }
   div.btn_reqs:hover{
     cursor: pointer;
+    border: 2px dashed blue;
   }
   #filters{
     float:left;
     background-color: #cccccc;
     width:22%;
-    min-height:100%;
     position: auto;
     z-index:1;
     margin-left: 1%;
@@ -66,9 +85,9 @@
     float:left;
     background-color: #888888;
     width: 46%;
-    min-height:100%;
     z-index:1;
-    position: auto;
+    position: relative;
+    display:block;
   }
   #drafts{
     position: fixed;
@@ -100,11 +119,12 @@
   #advanced{
     background-color: #eeeedd;
     text-align: center;
-    border-spacing: 0px;
     border: 2px solid gray;
+    padding:3px;
   }
   #advanced:hover {
     cursor: pointer;
+    border: 2px dashed blue;
   }
   input{
     width:60%;
@@ -133,6 +153,7 @@
   #drafts li a{
     text-decoration: none;
     color: white;
+    padding:5px;
   }
   #drafts .active {
     background-color: #cccccc;
@@ -562,12 +583,10 @@
           <option value="s">Summer</option>
         </select>
       </form>
-      <div id="advanced">
-        <p>Show Advanced Filters</p>
-      </div>
+      <div id="advanced">Show Advanced Filters  </div>
       <br>
       <span class="btn" id="clear" style="margin:auto;">Clear</span>
-      <span class="btn" id="enter">Enter</span>
+      <span class="btn" id="enter">Apply</span>
       <div id="requirements">
         <h2>Degree Requirements</h2>
         <span> <i>Computer Science: Major</i> </span>
@@ -577,33 +596,50 @@
         <div class="btn_reqs" id="year3">Show 3000 Level</div>
         <div class="btn_reqs" id="year4">Show 4000 Level</div>
       </div>
-    </div>
+
     </div>
     <!-- Courses Listings -->
     <div id="courses">
       <!--  Bar-->
       <div id="search">
-        <form>
+        <form onsubmit="searchEngine();return false;">
           Search
-          <input id="searchBar" type="text"  onkeyup="searchEngine()"
+          <input id="searchBar" type="text"
           placeholder="Search by course code, name, or instructor.">
         </form>
       </div>
-      <br>
 
   <div id="allSections">
 
       <div class="section">
+        <span class="alert">(!) Warning - Section Full</span>
         <ul>
-          <li id="comp2140" class="code">COMP 2140</li>
-          <li id="datastrc"class="name">Data structures & Algorithms</li>
-          <li id="drc" class="prof">Dr. C. Hillary</li>
+          <li class="code">COMP 2140 A01</li>
+          <li class="name">Data structures & Algorithms</li>
+          <li class="prof">Dr. D. Instructington</li>
         </ul>
       </div>
 
       <div class="section">
         <ul>
-          <li class="code">COMP1010</li>
+          <li class="code">COMP 2140 A02</li>
+          <li class="name">Data structures & Algorithms</li>
+          <li class="prof">Dr. C. Hillary</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">COMP 2140 A03</li>
+          <li class="name">Data structures & Algorithms</li>
+          <li class="prof">this is a prof name</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <span class="alert">(!) Warning - You Already hold credit for COMP1010</span>
+        <ul>
+          <li class="code">COMP1010 A01</li>
           <li class="name">Introduction to Computer Science</li>
           <li class="prof">Dr. P. rofessor </li>
         </ul>
@@ -611,7 +647,7 @@
 
       <div class="section">
         <ul>
-          <li class="code">MUSC1920</li>
+          <li class="code">MUSC1920 A01</li>
           <li class="name">Rudiments of Music</li>
           <li class="prof">A. Csordas</li>
         </ul>
@@ -619,7 +655,7 @@
 
       <div class="section">
         <ul>
-          <li class="code">FILM1010</li>
+          <li class="code">FILM1010 A01</li>
           <li class="name">The Art of Film</li>
           <li class="prof">C. Mauthe</li>
         </ul>
@@ -627,7 +663,7 @@
 
       <div class="section">
         <ul>
-          <li class="code">COMP3020</li>
+          <li class="code">COMP3020 A01</li>
           <li class="name">Human Computer Interaction I</li>
           <li class="prof">Dr. Andrea Bunt</li>
         </ul>
@@ -635,15 +671,16 @@
 
       <div class="section">
         <ul>
-          <li class="code">COMP3490</li>
+          <li class="code">COMP3490 A01</li>
           <li class="name">Computer Graphics I</li>
           <li class="prof">Dr. Niel Bruce</li>
         </ul>
       </div>
 
       <div class="section">
+        <span class="alert">(!) Warning - Restricted to University 1 Students</span>
         <ul>
-          <li class="code">ARTS1110</li>
+          <li class="code">ARTS1110 A01</li>
           <li class="name">Introduction to University</li>
           <li class="prof">Dr. P. rofessor</li>
         </ul>
@@ -651,7 +688,7 @@
 
       <div class="section">
         <ul>
-          <li class="code">FAAH1010</li>
+          <li class="code">FAAH1010 A01</li>
           <li class="name">Introduction to Art History</li>
           <li class="prof">Dr. A. Artsman</li>
         </ul>

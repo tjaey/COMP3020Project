@@ -1,5 +1,4 @@
 function searchEngine() {
-
   var containerDiv = document.getElementById("allSections");
   var innerDivs = containerDiv.getElementsByTagName("div");
   var input = document.getElementById("searchBar");
@@ -26,4 +25,6 @@ function searchEngine() {
   }
   else
     containerDiv.style.display = "none";
+
+  //document.getElementById("courses").style.height = "100%";
 }

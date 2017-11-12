@@ -9,8 +9,8 @@
   }
   body{
     min-height:100%;
-    background-color: white;
-        overflow: auto;
+    background-color: #bbccdd;
+        overflow: scroll;
   }
   #wrapper{
     min-height:100%;
@@ -24,6 +24,7 @@
     margin: 2%;
     border: 3px solid white ;
     height: 10%;
+    display: none;
   }
   .btn{
     background-color: #aaffaa;
@@ -79,6 +80,9 @@
   }
   #drafts_wrapper{
     padding: 4%;
+  }
+  #requirements{
+    background-color: #aaaaaa;
   }
   #table_container{
     margin:0 auto;
@@ -544,7 +548,7 @@
           <option value="2x">2000</option>
           <option value="3x">3000</option>
           <option value="4x">4000</option>
-          <option value="5x">5000</option>
+          <option value="5x">5000</option>F
           <option value="6x">6000</option>
           <option value="7x">7000</option>
           <option value="8x">8000</option>
@@ -568,31 +572,95 @@
         <h2>Degree Requirements</h2>
         <span> <i>Computer Science: Major</i> </span>
         <br><br>
-        <div class="btn_reqs" id="year1">1000 Level</div>
-        <div class="btn_reqs" id="year2">2000 Level</div>
-        <div class="btn_reqs" id="year3">3000 Level</div>
-        <div class="btn_reqs" id="year4">4000 Level</div>
+        <div class="btn_reqs" id="year1">Show 1000 Level</div>
+        <div class="btn_reqs" id="year2">Show 2000 Level</div>
+        <div class="btn_reqs" id="year3">Show 3000 Level</div>
+        <div class="btn_reqs" id="year4">Show 4000 Level</div>
       </div>
+    </div>
     </div>
     <!-- Courses Listings -->
     <div id="courses">
-      <!-- Search Bar-->
+      <!--  Bar-->
       <div id="search">
         <form>
           Search
-          <input name="search" type="text" placeholder="Search by course code, name, or instructor.">
+          <input id="searchBar" type="text"  onkeyup="searchEngine()"
+          placeholder="Search by course code, name, or instructor.">
         </form>
       </div>
       <br>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
-      <div class="section"> <p> test </p></div>
+
+  <div id="allSections">
+
+      <div class="section">
+        <ul>
+          <li id="comp2140" class="code">COMP 2140</li>
+          <li id="datastrc"class="name">Data structures & Algorithms</li>
+          <li id="drc" class="prof">Dr. C. Hillary</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">COMP1010</li>
+          <li class="name">Introduction to Computer Science</li>
+          <li class="prof">Dr. P. rofessor </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">MUSC1920</li>
+          <li class="name">Rudiments of Music</li>
+          <li class="prof">A. Csordas</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">FILM1010</li>
+          <li class="name">The Art of Film</li>
+          <li class="prof">C. Mauthe</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">COMP3020</li>
+          <li class="name">Human Computer Interaction I</li>
+          <li class="prof">Dr. Andrea Bunt</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">COMP3490</li>
+          <li class="name">Computer Graphics I</li>
+          <li class="prof">Dr. Niel Bruce</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">ARTS1110</li>
+          <li class="name">Introduction to University</li>
+          <li class="prof">Dr. P. rofessor</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <ul>
+          <li class="code">FAAH1010</li>
+          <li class="name">Introduction to Art History</li>
+          <li class="prof">Dr. A. Artsman</li>
+        </ul>
+      </div>
+
+      </div>
+
+      <script src="searchEngine.js"></script>
+
     </div>
 
   </div>

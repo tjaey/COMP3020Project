@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="jquery-3.2.1.js"></script>
   <style>
   html{
     min-height:100%;
@@ -69,17 +70,12 @@
     position: auto;
   }
   #drafts{
-    position: auto;
+    position: fixed;
+    right:0;
     background-color: #cccccc;
     width:29%;
-    min-height:100%;
     float: right;
     z-index:1;
-  }
-  #topPadding{
-    background-color: #eeeeee;
-    padding:5px;
-    height:5%;
   }
   #drafts_wrapper{
     padding: 4%;
@@ -87,10 +83,15 @@
   #table_container{
     margin:0 auto;
   }
+  #topPadding{
+    background-color: #eeeeee;
+    padding:5px;
+    height:40px;
+  }
   #search{
     background-color: #e2e2e2;
     padding: 5px;
-    height: 5%;
+    height:40px;
   }
   #advanced{
     background-color: #eeeedd;
@@ -112,6 +113,36 @@
   form{
     padding: 5px;
   }
+  #drafts ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  #drafts li{
+    display: inline-block;
+    background-color: #444444;
+    padding: 8px 16px;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+  #drafts li a{
+    text-decoration: none;
+    color: white;
+  }
+  #drafts .active {
+    background-color: #cccccc;
+    color: black;
+  }
+  #drafts .active a{
+    color: black;
+  }
+  .tab-panel{
+    display:none;
+  }
+  .tab-panel.active{
+    display:block;
+  }
   table{
     background-color: #dddddd;
     border-spacing: 0px;
@@ -119,6 +150,7 @@
     empty-cells: show;
     border-collapse: collapse;
     text-align: center;
+    color:black;
   }
   th {
     background-color: #bbbbbb;
@@ -137,7 +169,7 @@
     <h1>(toolbar will be copied from other page)</h1>
     <!-- Drafts Sidebar-->
     <div id="drafts">
-      <div id="topPadding"><h2> My Scheduling Drafts </h2></div>
+      <div id="topPadding"><h2 style="margin: auto;"> My Scheduling Drafts </h2></div>
       <div id="drafts_wrapper">
         <form> View:
           <select name="drafts" class="drafts">
@@ -147,11 +179,14 @@
           <span class="btn" id="addDraft">+ Add New</span>
         </form>
         <br>
+        <!-- TabList panel from Jon Duckett's Javascript & Jquery, 2014 -->
+        <ul class="tab-list">
+          <li class="active"><a class="tab-control" href="#tab-f">Fall</a></li>
+          <li><a class="tab-control" href="#tab-w">Winter</a></li>
+        </ul>
+        <div class="tab-panel active" id="tab-f">
         <table id="fall">
           <tr>
-            <th colspan="8">Fall</th>
-          </tr>
-          <tr>
             <th>Time</th>
             <th id="day">Sun</th>
             <th id="day">Mon</th>
@@ -302,12 +337,10 @@
             <td></td>
           </tr>
         </table>
-        <br><br>
+        </div>
+        <div class="tab-panel" id="tab-w">
         <table id="winter">
           <tr>
-            <th colspan="8">Winter</th>
-          </tr>
-          <tr>
             <th>Time</th>
             <th id="day">Sun</th>
             <th id="day">Mon</th>
@@ -458,12 +491,41 @@
             <td></td>
           </tr>
         </table>
-        <br><br><br><br><br><br><br>
-      </div>
+        </div>
+          <script>
+          /************************
+          FOLLOWING CODE WAS OBTAIEND FROM 'Javascript & Jquery', 2014
+          AUTHOR: Jon Duckett
+          Published by John Wiley  & Sons, Indianapolis, In.
+          **************************/
+
+          $('.tab-list').each(function(){                   // Find lists of tabs
+            var $this = $(this);                            // Store this list
+            var $tab = $this.find('li.active');             // Get the active list item
+            var $link = $tab.find('a');                     // Get link from active tab
+            var $panel = $($link.attr('href'));             // Get active panel
+
+            $this.on('click', '.tab-control', function(e) { // When click on a tab
+              e.preventDefault();                           // Prevent link behavior
+              var $link = $(this),                          // Store the current link
+              id = this.hash;                           // Get href of clicked tab
+
+              if (id && !$link.is('.active')) {             // If not currently active
+                $panel.removeClass('active');               // Make panel inactive
+                $tab.removeClass('active');                 // Make tab inactive
+
+                $panel = $(id).addClass('active');          // Make new panel active
+                $tab = $link.parent().addClass('active');   // Make new tab active
+              }
+            });
+          });
+
+          </script>
+        </div>
     </div>
     <!-- Filters Sidebar-->
     <div id="filters">
-      <div id="topPadding"><h2>Search Filters</h2></div>
+      <div id="topPadding"><h2 style="margin: auto;">Search Filters</h2></div>
       Subject
       <form>
         <select name="subject" size="5" multiple>

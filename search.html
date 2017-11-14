@@ -13,8 +13,12 @@
   body{
     height: 100%;
     min-height:100%;
-    background-color: #ccddee;
+    background-color: #444;
         overflow: scroll;
+
+    background-image: url("search-help.png");
+    background-repeat: no-repeat;
+    background-position:center 80%;
   }
   #menu{
     background-color: blue;
@@ -142,7 +146,7 @@
     margin-left: 1%;
     margin-right: 1%;
     float:left;
-    background-color: #888888;
+    background-color: #ddd;
     width: 46%;
     z-index:1;
     position: relative;
@@ -182,6 +186,7 @@
 
   #bysubLabel{
     background-color: #eee;
+    border-bottom: 6px double #222;
   }
 
   #advancedLabel{
@@ -656,20 +661,6 @@
             <option value="def" class="def" id="courseAll">(All)</option>
         </select>
       </form>
-      <form> Level
-        <select  id="level" name="level">
-          <option value="def" selected=true;>Any</option>
-          <option value="1x">1000</option>
-          <option value="2x">2000</option>
-          <option value="3x">3000</option>
-          <option value="4x">4000</option>
-          <option value="5x">5000</option>F
-          <option value="6x">6000</option>
-          <option value="7x">7000</option>
-          <option value="8x">8000</option>
-          <option value="9x">9000</option>
-        </select>
-      </form>
       <form id="semester"> Semester
         <select name="semester">
           <option value="f" selected=true;>Fall</option>
@@ -680,8 +671,21 @@
     </div>
       <button class="accordion" id="advancedLabel">Advanced Filters</button>
       <div class="advancedPanel">
-
-        <form id="filter_time">
+        <form> Level
+          <select  id="level" name="level">
+            <option value="def" selected=true;>Any</option>
+            <option value="1x">1000</option>
+            <option value="2x">2000</option>
+            <option value="3x">3000</option>
+            <option value="4x">4000</option>
+            <option value="5x">5000</option>F
+            <option value="6x">6000</option>
+            <option value="7x">7000</option>
+            <option value="8x">8000</option>
+            <option value="9x">9000</option>
+          </select>
+        </form>
+        <form id="filter_time"> Days:<br>
           <input type="checkbox" name="day" value="M">Mon<br>
           <input type="checkbox" name="day" value="T">Tues<br>
           <input type="checkbox" name="day" value="W">Wed<br>

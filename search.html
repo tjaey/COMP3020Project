@@ -177,21 +177,49 @@
     background-color: #e2e2e2;
     padding: 5px;
     height:40px;
+
   }
-  #advanced{
+
+  #bysubLabel{
+    background-color: #eee;
+  }
+
+  #advancedLabel{
     background-color: #eeeedd;
-    text-align: center;
-    border: 2px solid gray;
-    padding:3px;
+    padding: 2%;
   }
-  #advanced:hover {
+  button.accordion {
     cursor: pointer;
-    border: 2px dashed blue;
+    text-align: left;
+    transition: 0.4s;
+    width:100%;
+
   }
-  input{
-    width:60%;
+  button.accordion.active, button.accordion:hover {
+      background-color: #ccc;
+  }
+  /* Style the accordion panel. Note: hidden by default */
+  div.advancedPanel {
+
+    background-color: #aaa;
+    max-height: 0;
+    width:100%;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  div.subjectPanel {
+
+    background-color: #ccc;
+    max-height: 0;
+    width:100%;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  #searchBar{
     padding: 6px 12px;
-    margin-left: 2%;
+    width:80%;
     box-sizing: border-box;
     border: 2px inset cyan;
     border-radius: 8px;
@@ -597,42 +625,23 @@
           </tr>
         </table>
         </div>
-          <script>
-          /************************
-          FOLLOWING CODE WAS OBTAIEND FROM 'Javascript & Jquery', 2014
-          AUTHOR: Jon Duckett
-          Published by John Wiley  & Sons, Indianapolis, In.
-          **************************/
-
-          $('.tab-list').each(function(){                   // Find lists of tabs
-            var $this = $(this);                            // Store this list
-            var $tab = $this.find('li.active');             // Get the active list item
-            var $link = $tab.find('a');                     // Get link from active tab
-            var $panel = $($link.attr('href'));             // Get active panel
-
-            $this.on('click', '.tab-control', function(e) { // When click on a tab
-              e.preventDefault();                           // Prevent link behavior
-              var $link = $(this),                          // Store the current link
-              id = this.hash;                           // Get href of clicked tab
-
-              if (id && !$link.is('.active')) {             // If not currently active
-                $panel.removeClass('active');               // Make panel inactive
-                $tab.removeClass('active');                 // Make tab inactive
-
-                $panel = $(id).addClass('active');          // Make new panel active
-                $tab = $link.parent().addClass('active');   // Make new tab active
-              }
-            });
-          });
-
-          </script>
         </div>
     </div>
     <!-- Filters Sidebar-->
     <div id="filters">
-      <div id="topPadding"><h2 style="margin: auto;">Search Filters</h2></div>
-      Subject
-      <form >
+      <!--  Bar-->
+      <div id="search">
+        <form onsubmit="searchEngine();return false;">
+          <input id="searchBar" type="text"
+          placeholder="Search by course code, name, or instructor."
+          background>
+          <input type="button" onclick="searchEngine()" value="Enter" style="float:right"></input>
+        </form>
+      </div>
+      <button class="accordion" id="bysubLabel"><h3>Search by Subject</h3></button>
+      <div class="subjectPanel">
+      <form>
+        Subject:
         <select id="subject" name="subject" size="5" onchange="doCourses()" multiple>
           <option value="def" selected=true;>(All)</option>
           <option value="no">Accoutning</option>
@@ -668,7 +677,59 @@
           <option value="s">Summer</option>
         </select>
       </form>
-      <div id="advanced">Show Advanced Filters  </div>
+    </div>
+      <button class="accordion" id="advancedLabel">Advanced Filters</button>
+      <div class="advancedPanel">
+
+        <form id="filter_time">
+          <input type="checkbox" name="day" value="M">Mon<br>
+          <input type="checkbox" name="day" value="T">Tues<br>
+          <input type="checkbox" name="day" value="W">Wed<br>
+          <input type="checkbox" name="day" value="R">Thurs<br>
+          <input type="checkbox" name="day" value="F">Fri<br>
+          From:
+          <input type="text" name="tStart" maxlength="2" size="2">
+          : <input type="text" name="tStart" maxlength="2" size="2">
+          <select name="AMPM">
+          <option value="am" selected=true;>AM</option>
+          <option value="pm">PM</option>
+          </select>
+          <br>To:
+          <input type="text" name="tStart" maxlength="2" size="2">
+          : <input type="text" name="tStart" maxlength="2" size="2">
+          <select name="AMPM">
+          <option value="am" selected=true;>AM</option>
+          <option value="pm">PM</option>
+        </select>
+        </form>
+
+        <form>
+          Campus / Online:
+          <select name="campus">
+          <option value="def" selected=true;>(All)</option>
+          <option value="main">Main Campus</option>
+          <option value="dist">Online / Distance Education</option>
+        </select>
+        </form>
+
+        <form>
+          Attributes:<br>
+          <input type="checkbox" name="hist">History Requirement<br>
+          <input type="checkbox" name="ss">Humanities Requirement<br>
+          <input type="checkbox" name="sci">Science Requirement<br>
+            <input type="checkbox" name="u1">University 1 Course<br>
+          <input type="checkbox" name="w">Writing Requirement<br>
+          <input type="checkbox" name="de">Distance Education<br>
+        </form>
+
+        <form>
+          Filters:<br>
+          <input type="checkbox" name="labs">Hide Lab sections<br>
+          <input type="checkbox" name="labs">Hide Waitlisted sections<br>
+        </form>
+
+
+      </div>
       <br>
       <span class="btn" id="clear" style="margin:auto;" onclick="clearFilters()">Clear</span>
       <span class="btn" id="enter" onclick="applyFilters()">Apply</span>
@@ -685,15 +746,6 @@
     </div>
     <!-- Courses Listings -->
     <div id="courses">
-      <!--  Bar-->
-      <div id="search">
-        <form onsubmit="searchEngine();return false;">
-          Search
-          <input id="searchBar" type="text"
-          placeholder="Search by course code, name, or instructor."
-          background>
-        </form>
-      </div>
 
   <div id="allSections">
 
@@ -836,6 +888,55 @@
   </div>
 
         <script src="searchEngine.js"></script>
+        <script>
+        /************************
+        Following script from w3schools.com under Favorable Use.
+        **************************/
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].onclick = function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          }
+        }
+
+        /************************
+        FOLLOWING CODE WAS OBTAIEND FROM 'Javascript & Jquery', 2014
+        under Favorable Use
+        AUTHOR: Jon Duckett
+        Published by John Wiley  & Sons, Indianapolis, In.
+        **************************/
+
+        $('.tab-list').each(function(){                   // Find lists of tabs
+          var $this = $(this);                            // Store this list
+          var $tab = $this.find('li.active');             // Get the active list item
+          var $link = $tab.find('a');                     // Get link from active tab
+          var $panel = $($link.attr('href'));             // Get active panel
+
+          $this.on('click', '.tab-control', function(e) { // When click on a tab
+            e.preventDefault();                           // Prevent link behavior
+            var $link = $(this),                          // Store the current link
+            id = this.hash;                           // Get href of clicked tab
+
+            if (id && !$link.is('.active')) {             // If not currently active
+              $panel.removeClass('active');               // Make panel inactive
+              $tab.removeClass('active');                 // Make tab inactive
+
+              $panel = $(id).addClass('active');          // Make new panel active
+              $tab = $link.parent().addClass('active');   // Make new tab active
+            }
+          });
+        });
+
+        </script>
+
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Course Search</title>
   <script src="jquery-3.2.1.js"></script>
   <style>
   html{
@@ -11,8 +13,53 @@
   body{
     height: 100%;
     min-height:100%;
-    background-color: #bbccdd;
+    background-color: #ccddee;
         overflow: scroll;
+  }
+  #menu{
+    background-color: blue;
+    min-height: 10%;
+    height: 80px;
+    padding: 10px;
+  }
+  #profile{
+    float:right;
+    color:white;
+  }
+  #nav{
+    margin-bottom: 2%;
+  }
+  #nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #222;
+  }
+
+  #nav li {
+      float: left;
+      border-right:1px solid #bbb;
+  }
+
+  #nav li:last-child {
+      border-right: none;
+  }
+
+  #nav li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+  }
+
+  #nav li a:hover:not(.active) {
+      background-color: #111;
+  }
+
+  #nav .active {
+      background-color: #7777ee;
   }
   #wrapper{
     padding-bottom: 30px;
@@ -28,6 +75,18 @@
     height: 10%;
     display: none;
     white-space: nowrap;
+  }
+  div.lab{
+    background-color: lightblue;
+    padding-left: 30px;
+    margin: 0 2% 1% 8%;
+    border: 2px solid white ;
+    height: 1%;
+    display: none;
+    white-space: nowrap;
+  }
+  #courses ul{
+      list-style-type: none;
   }
   .alert{
     background-color: red;
@@ -100,6 +159,9 @@
   #drafts_wrapper{
     padding: 4%;
   }
+  #courseBox{
+    width: 75%;
+  }
   #requirements{
     background-color: #aaaaaa;
   }
@@ -133,6 +195,10 @@
     box-sizing: border-box;
     border: 2px inset cyan;
     border-radius: 8px;
+    background-image: url("searchicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    background-size: 28px;
   }
   form{
     padding: 5px;
@@ -191,7 +257,21 @@
 </head>
 <body>
   <div id="wrapper">
-    <h1>(toolbar will be copied from other page)</h1>
+    <!-- MAIN TOOLBAR -->
+    <div id="menu">
+      <img src="UM_l_bwn_horz"></img>
+      <div id="profile">
+        <p> Student </p>
+        <a> Sign Out</a>
+      </div>
+    </div>
+  <!-- NAVIGATION TOOLBAR -->
+  <div id="nav">
+    <ul>
+      <li> <a target="_blank" href="home.html" > Home</a></li>
+      <li> <a href="search.html" class="active" target="_blank">Search and Register</a></li>
+    </ul>
+  </div>
     <!-- Drafts Sidebar-->
     <div id="drafts">
       <div id="topPadding"><h2 style="margin: auto;"> My Scheduling Drafts </h2></div>
@@ -552,18 +632,23 @@
     <div id="filters">
       <div id="topPadding"><h2 style="margin: auto;">Search Filters</h2></div>
       Subject
-      <form>
-        <select name="subject" size="5" multiple>
+      <form >
+        <select id="subject" name="subject" size="5" onchange="doCourses()" multiple>
           <option value="def" selected=true;>(All)</option>
           <option value="no">Accoutning</option>
-          <option value="cs">Computer Science</option>
+          <option value="cs" id="subCS">Computer Science</option>
           <option value="no">Music</option>
           <option value="no">Marketing</option>
           <option value="no">Mathematics</option>
         </select>
+      </br>
+        Course:
+        <select id="courseBox" disabled name="coursubject" size="5" multiple>
+            <option value="def" class="def" id="courseAll">(All)</option>
+        </select>
       </form>
       <form> Level
-        <select name="level">
+        <select  id="level" name="level">
           <option value="def" selected=true;>Any</option>
           <option value="1x">1000</option>
           <option value="2x">2000</option>
@@ -576,7 +661,7 @@
           <option value="9x">9000</option>
         </select>
       </form>
-      <form> Semester
+      <form id="semester"> Semester
         <select name="semester">
           <option value="f" selected=true;>Fall</option>
           <option value="w">Winter</option>
@@ -585,8 +670,8 @@
       </form>
       <div id="advanced">Show Advanced Filters  </div>
       <br>
-      <span class="btn" id="clear" style="margin:auto;">Clear</span>
-      <span class="btn" id="enter">Apply</span>
+      <span class="btn" id="clear" style="margin:auto;" onclick="clearFilters()">Clear</span>
+      <span class="btn" id="enter" onclick="applyFilters()">Apply</span>
       <div id="requirements">
         <h2>Degree Requirements</h2>
         <span> <i>Computer Science: Major</i> </span>
@@ -605,101 +690,152 @@
         <form onsubmit="searchEngine();return false;">
           Search
           <input id="searchBar" type="text"
-          placeholder="Search by course code, name, or instructor.">
+          placeholder="Search by course code, name, or instructor."
+          background>
         </form>
       </div>
 
   <div id="allSections">
 
-      <div class="section">
-        <span class="alert">(!) Warning - Section Full</span>
-        <ul>
-          <li class="code">COMP 2140 A01</li>
-          <li class="name">Data structures & Algorithms</li>
-          <li class="prof">Dr. D. Instructington</li>
-        </ul>
-      </div>
+    <div class="section" data-level="2" data-subject="cs">
+      <span class="alert">(!) Warning - Restricted to University 1 Students</span>
+      <ul>
+        <li class="code">ARTS1110 A01</li>
+        <li class="name">Introduction to University</li>
+        <li class="prof">Dr. P. rofessor</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <ul>
-          <li class="code">COMP 2140 A02</li>
-          <li class="name">Data structures & Algorithms</li>
-          <li class="prof">Dr. C. Hillary</li>
-        </ul>
-      </div>
+    <div class="section" data-level="2" data-subject="cs">
+      <span class="alert">(!) Warning - You Already hold credit for COMP1010</span>
+      <ul>
+        <li class="code">COMP 1010 A01</li>
+        <li class="name">Introduction to Computer Science</li>
+        <li class="prof">Dr. P. rofessor </li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <ul>
-          <li class="code">COMP 2140 A03</li>
-          <li class="name">Data structures & Algorithms</li>
-          <li class="prof">this is a prof name</li>
-        </ul>
-      </div>
+    <div class="lab" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP 1010 B01</li>
+        <li class="name">Introduction to Computer Science</li>
+        <li class="prof">TBA</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <span class="alert">(!) Warning - You Already hold credit for COMP1010</span>
-        <ul>
-          <li class="code">COMP1010 A01</li>
-          <li class="name">Introduction to Computer Science</li>
-          <li class="prof">Dr. P. rofessor </li>
-        </ul>
-      </div>
+    <div class="lab" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP 1010 B02</li>
+        <li class="name">Introduction to Computer Science</li>
+        <li class="prof">TBA</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <ul>
-          <li class="code">MUSC1920 A01</li>
-          <li class="name">Rudiments of Music</li>
-          <li class="prof">A. Csordas</li>
-        </ul>
-      </div>
+    <div class="lab" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP 1010 B03</li>
+        <li class="name">Introduction to Computer Science</li>
+        <li class="prof">TBA</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <ul>
-          <li class="code">FILM1010 A01</li>
-          <li class="name">The Art of Film</li>
-          <li class="prof">C. Mauthe</li>
-        </ul>
-      </div>
+    <div class="section"  data-level="2" data-subject="cs">
+      <span class="alert">(!) Warning - Section Full</span>
+      <ul>
+        <li class="code">COMP 2140 A01</li>
+        <li class="name">Data structures & Algorithms</li>
+        <li class="prof">Dr. D. Instructington</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <ul>
-          <li class="code">COMP3020 A01</li>
-          <li class="name">Human Computer Interaction I</li>
-          <li class="prof">Dr. Andrea Bunt</li>
-        </ul>
-      </div>
+    <div class="section"  data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP 2140 A02</li>
+        <li class="name">Data structures & Algorithms</li>
+        <li class="prof">Dr. C. Hillary</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <ul>
-          <li class="code">COMP3490 A01</li>
-          <li class="name">Computer Graphics I</li>
-          <li class="prof">Dr. Niel Bruce</li>
-        </ul>
-      </div>
+    <div class="section" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP 2140 A03</li>
+        <li class="name">Data structures & Algorithms</li>
+        <li class="prof">this is a prof name</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <span class="alert">(!) Warning - Restricted to University 1 Students</span>
-        <ul>
-          <li class="code">ARTS1110 A01</li>
-          <li class="name">Introduction to University</li>
-          <li class="prof">Dr. P. rofessor</li>
-        </ul>
-      </div>
+    <div class="lab" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP 2140 B01</li>
+        <li class="name">Data structures & Algorithms</li>
+        <li class="prof">TBA</li>
+      </ul>
+    </div>
 
-      <div class="section">
-        <ul>
-          <li class="code">FAAH1010 A01</li>
-          <li class="name">Introduction to Art History</li>
-          <li class="prof">Dr. A. Artsman</li>
-        </ul>
-      </div>
+    <div class="lab" data-level="2" data-subject="cs">
+      <ul>
+          <span class="alert">(!) Warning - Schedule Conflict</span>
+        <li class="code">COMP 2140 B02</li>
+        <li class="name">Data structures & Algorithms</li>
+        <li class="prof">TBA</li>
+      </ul>
+    </div>
 
-      </div>
+    <div class="lab" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP 2140 B03</li>
+        <li class="name">Data structures & Algorithms</li>
+        <li class="prof">TBA</li>
+      </ul>
+    </div>
 
-      <script src="searchEngine.js"></script>
+    <div class="section" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP3020 A01</li>
+        <li class="name">Human Computer Interaction I</li>
+        <li class="prof">Dr. Andrea Bunt</li>
+      </ul>
+    </div>
+
+    <div class="section" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">COMP3490 A01</li>
+        <li class="name">Computer Graphics I</li>
+        <li class="prof">Dr. Niel Bruce</li>
+      </ul>
+    </div>
+
+    <div class="section" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">MUSC1920 A01</li>
+        <li class="name">Rudiments of Music</li>
+        <li class="prof">A. Csordas</li>
+      </ul>
+    </div>
+
+    <div class="section" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">FILM1010 A01</li>
+        <li class="name">The Art of Film</li>
+        <li class="prof">C. Mauthe</li>
+      </ul>
+    </div>
+
+    <div class="section" data-level="2" data-subject="cs">
+      <ul>
+        <li class="code">FAAH1010 A01</li>
+        <li class="name">Introduction to Art History</li>
+        <li class="prof">Dr. A. Artsman</li>
+      </ul>
+    </div>
+
+  </div>
 
     </div>
 
   </div>
+
+        <script src="searchEngine.js"></script>
+
 </body>
 </html>

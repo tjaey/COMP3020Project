@@ -14,7 +14,6 @@
     height: 100%;
     min-height:100%;
     background-color: #444;
-    overflow: scroll;
   }
   #menu{
     background-color: blue;
@@ -106,9 +105,9 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .btn{
-    background-color: #aaffaa;
     text-align: center;
-    border: 2px outset green;
+    background-color: white;
+    border: 2px outset white;
     padding: 10px;
     width: 15%;
   }
@@ -126,7 +125,7 @@
   .btn:hover{
     cursor: pointer;
     border: 2px outset black;
-    background-color: green;
+    background-color: ;
   }
   .btn_reqs{
     background-color: #eeeedd;
@@ -152,12 +151,11 @@
     float:left;
     background-color: #ddd;
     width: 46%;
-    z-index:1;
-    position: relative;
-    display:block;
+    overflow-y: auto;
+    max-height: 100%;
   }
   #drafts{
-    position: fixed;
+    position: relative;
     right:0;
     background-color: #cccccc;
     width:29%;
@@ -213,7 +211,7 @@
     background-color: #aaa;
     max-height: 0;
     width:100%;
-    overflow: hidden;
+    overflow: scroll;
     transition: max-height 0.2s ease-out;
   }
 
@@ -225,7 +223,13 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
-
+  #advancedWrap{
+    max-height: 400px;
+    overflow: scroll;
+  }
+  #degreeLabel{
+    padding: 2%;
+  }
   #searchBar{
     padding: 6px 12px;
     width:80%;
@@ -305,8 +309,9 @@
   <!-- NAVIGATION TOOLBAR -->
   <div id="nav">
     <ul>
-      <li> <a target="_blank" href="home.html" > Home</a></li>
+      <li> <a target="_blank" href="home.html" >Home</a></li>
       <li> <a href="search.html" class="active" target="_blank">Search and Register</a></li>
+      <li style="float:right;"> <a target="_blank" href="">Help</a></li>
     </ul>
   </div>
 
@@ -314,7 +319,10 @@
 
     <!-- Drafts Sidebar-->
     <div id="drafts">
-      <div id="topPadding"><h2 style="margin: auto;"> My Scheduling Drafts </h2></div>
+      <ul class="tab-list" style="background-color:#444;">
+        <li class="active"><a class="tab-control">Timetable Drafts</a></li>
+        <li><a class="tab-control">Registered Courses</a></li>
+      </ul>
       <div id="drafts_wrapper">
         <form> View:
           <select name="drafts" class="drafts">
@@ -647,7 +655,7 @@
           <input id="searchBar" type="text"
           placeholder="Search by course code, name, or instructor."
           background>
-          <input type="button" onclick="searchEngine()" value="Enter" style="float:right"></input>
+        <!--  <input type="button" onclick="searchEngine()" value="Enter" style="float:right"></input> -->
         </form>
       </div>
       <button class="accordion" id="bysubLabel"><h3>Search by Subject &#9660;</h3></button>
@@ -668,9 +676,11 @@
             <option value="def" class="def" id="courseAll">(All)</option>
         </select>
       </form>
+      <span class="btn" id="enter" onclick="applyFilters()">Enter</span>
     </div>
       <button class="accordion" id="advancedLabel">Advanced Filters &#9660;</button>
       <div class="advancedPanel">
+        <div id="advancedWrap">
         <form> Level
           <select  id="level" name="level">
             <option value="def" selected=true;>Any</option>
@@ -732,13 +742,13 @@
           <input type="checkbox" name="labs">Hide Waitlisted sections<br>
         </form>
 
+      <span class="btn" id="clear" style="margin:auto;" onclick="clearFilters()">Clear Filters</span>
 
       </div>
+    </div>
       <br>
-      <span class="btn" id="clear" style="margin:auto;" onclick="clearFilters()">Clear</span>
-      <span class="btn" id="enter" onclick="applyFilters()">Apply</span>
-      <div id="requirements">
-        <h2>Degree Requirements</h2>
+      <button class="accordion" id="degreeLabel">Degree Requirements &#9660;</button>
+      <div id="requirements" class="subjectPanel">
         <span> <i>Computer Science: Major</i> </span>
         <br><br>
         <div class="btn_reqs" id="year1">Show 1000 Level</div>
@@ -904,7 +914,8 @@
         <script src="searchEngine.js"></script>
         <script>
         /************************
-        Following script from w3schools.com under Favorable Use.
+        Following script based on example from w3schools.com
+        under Favorable Use.
         **************************/
         var acc = document.getElementsByClassName("accordion");
         var i;

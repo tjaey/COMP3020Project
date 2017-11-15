@@ -14,11 +14,7 @@
     height: 100%;
     min-height:100%;
     background-color: #444;
-        overflow: scroll;
-
-    background-image: url("search-help.png");
-    background-repeat: no-repeat;
-    background-position:center 80%;
+    overflow: scroll;
   }
   #menu{
     background-color: blue;
@@ -64,6 +60,14 @@
 
   #nav .active {
       background-color: #7777ee;
+  }
+  #bodyWrapper{
+    background-image: url("search-help.png");
+    background-repeat: no-repeat;
+    background-position:48% 40%;
+    width:100%;
+    height:100%;
+    margin: 0;
   }
   #wrapper{
     padding-bottom: 30px;
@@ -294,8 +298,8 @@
     <div id="menu">
       <img src="UM_l_bwn_horz"></img>
       <div id="profile">
-        <p> Student </p>
-        <a> Sign Out</a>
+        <p> Student Info</p>
+        <a href="" style="color:white;"> Sign Out</a>
       </div>
     </div>
   <!-- NAVIGATION TOOLBAR -->
@@ -305,6 +309,9 @@
       <li> <a href="search.html" class="active" target="_blank">Search and Register</a></li>
     </ul>
   </div>
+
+  <div id="bodyWrapper">
+
     <!-- Drafts Sidebar-->
     <div id="drafts">
       <div id="topPadding"><h2 style="margin: auto;"> My Scheduling Drafts </h2></div>
@@ -643,7 +650,7 @@
           <input type="button" onclick="searchEngine()" value="Enter" style="float:right"></input>
         </form>
       </div>
-      <button class="accordion" id="bysubLabel"><h3>Search by Subject</h3></button>
+      <button class="accordion" id="bysubLabel"><h3>Search by Subject &#9660;</h3></button>
       <div class="subjectPanel">
       <form>
         Subject:
@@ -661,15 +668,8 @@
             <option value="def" class="def" id="courseAll">(All)</option>
         </select>
       </form>
-      <form id="semester"> Semester
-        <select name="semester">
-          <option value="f" selected=true;>Fall</option>
-          <option value="w">Winter</option>
-          <option value="s">Summer</option>
-        </select>
-      </form>
     </div>
-      <button class="accordion" id="advancedLabel">Advanced Filters</button>
+      <button class="accordion" id="advancedLabel">Advanced Filters &#9660;</button>
       <div class="advancedPanel">
         <form> Level
           <select  id="level" name="level">
@@ -750,6 +750,14 @@
     </div>
     <!-- Courses Listings -->
     <div id="courses">
+
+      <form id="semester"> Semester
+        <select name="semester">
+          <option value="f" selected=true;>Fall 2017</option>
+          <option value="w">Winter 2018</option>
+          <option value="s">Summer 2018</option>
+        </select>
+      </form>
 
   <div id="allSections">
 
@@ -890,6 +898,8 @@
     </div>
 
   </div>
+
+</div>
 
         <script src="searchEngine.js"></script>
         <script>

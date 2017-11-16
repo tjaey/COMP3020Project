@@ -2,9 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Course Search</title>
   <script src="jquery-3.2.1.js"></script>
-  <style>
+<style>
   html{
     height: 100%;
     min-height:100%;
@@ -61,9 +62,6 @@
       background-color: lightblue;
   }
   #bodyWrapper{
-    background-image: url("search-help.png");
-    background-repeat: no-repeat;
-    background-position:48% 40%;
     width:100%;
     height:100%;
     margin: 0;
@@ -152,6 +150,10 @@
     width: 46%;
     overflow-y: auto;
     max-height: 100%;
+    height: 100%;
+    background-image: url("search-help.png");
+    background-repeat: no-repeat;
+    background-position:center 20%;
   }
   #coursesHeading{
     background-color: lightblue;
@@ -166,6 +168,7 @@
   }
   #drafts_wrapper{
     padding: 4%;
+    border:2px solid black;
   }
   #courseBox{
     width: 75%;
@@ -190,7 +193,6 @@
 
   #bysubLabel{
     background-color: #fff;
-    border-bottom: 6px double #222;
   }
 
   #advancedLabel{
@@ -209,11 +211,10 @@
   }
   /* Style the accordion panel. Note: hidden by default */
   div.advancedPanel {
-
     background-color: #eee;
     max-height: 0;
     width:100%;
-    overflow: scroll;
+    overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
 
@@ -226,15 +227,14 @@
     transition: max-height 0.2s ease-out;
   }
   #advancedWrap{
-    max-height: 400px;
-    overflow: scroll;
+
   }
   #degreeLabel{
     padding: 2%;
   }
   #searchBar{
     padding: 6px 12px;
-    width:80%;
+    width:100%;
     box-sizing: border-box;
     border: 2px inset cyan;
     border-radius: 8px;
@@ -321,7 +321,7 @@
 
     <!-- Drafts Sidebar-->
     <div id="drafts">
-      <ul class="tab-list" style="background-color:#444;">
+      <ul class="tab-list" style="background-color:#fff;">
         <li class="active"><a class="tab-control">Timetable Drafts</a></li>
         <li><a class="tab-control">Registered Courses</a></li>
       </ul>
@@ -749,7 +749,7 @@
       </div>
     </div>
       <br>
-      <button class="accordion" id="degreeLabel">Degree Requirements &#9660;</button>
+      <button class="accordion" id="degreeLabel">My Program Requirements &#9660;</button>
       <div id="requirements" class="subjectPanel">
         <span> <i>Computer Science: Major</i> </span>
         <br><br>
@@ -774,6 +774,11 @@
     </div>
 
   <div id="allSections">
+
+    <div class="section" data-level="0" data-subject="null" id="noResults">
+        <p> No courses Found. - Revise your search criteria</p>
+      </ul>
+    </div>
 
     <div class="section" data-level="2" data-subject="cs">
       <span class="alert">(!) Warning - Restricted to University 1 Students</span>

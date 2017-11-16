@@ -1,18 +1,27 @@
+//********************** Search Bar Function
+
 function searchEngine() {
   var containerDiv = document.getElementById("allSections");
   var innerDivs = containerDiv.getElementsByTagName("div");
   var input = document.getElementById("searchBar");
   var filter = input.value.toUpperCase();
 
+  getRidofSplash();
+
+
+  var noResults = document.getElementById("noResults");
+  var notFound = true;
+  noResults.style.display = "none";
+
   if(filter){
-  containerDiv.style.display = "block";
+  //containerDiv.style.display = "block";
   for(var i=0; i<innerDivs.length; i++) // for all sections (div's)
   {
     //var level = innerDivs[i].getAttribute('level');
   //  var subject = innerDivs[i].getAttribute('subject');
 
   //  alert(innerDivs[i].hasAttribute('level'));
-  //  alert(innerDivs[i].hasAttribute('subject'));
+  //  alert(innerDivs[i].hasAttribute('subject'))
 
     var tags = innerDivs[i].getElementsByTagName("li")
     var code = tags[0];
@@ -23,7 +32,6 @@ function searchEngine() {
       || name.innerHTML.toUpperCase().indexOf(filter) > -1
       || prof.innerHTML.toUpperCase().indexOf(filter) > -1) {
 
-        //if(level == '2' && subject == 'cs')
           innerDivs[i].style.display = "block";
       } else {
         innerDivs[i].style.display = "none";
@@ -34,8 +42,23 @@ function searchEngine() {
   else
     containerDiv.style.display = "none";
 
-  //document.getElementById("courses").style.height = "100%";
+
+  // "No courses found" display
+  for(var i=0; i<innerDivs.length; i++){
+    if(innerDivs[i].style.display != "none")
+      notFound = false;
+  }
+
+  if(notFound){
+    noResults.style.display = "block";
+  }
+  else{
+    noResults.style.display = "none";
+  }
+
 }
+
+//**************** Advanced Filters / Searching by Subject
 
 function clearFilters(){
   var subject = document.getElementById('subject');
@@ -54,6 +77,9 @@ function applyFilters(){
     // if filters apply
     innerDivs[i].style.display = "block";
   }
+  getRidofSplash();
+  var noResults = document.getElementById("noResults");
+  noResults.style.display = "none";
 }
 
 function putCoursesBox(){
@@ -94,4 +120,9 @@ function doCourses(){
   } else {
     rmCoursesBox();
   }
+}
+
+function getRidofSplash(){
+  var getStarted =  document.getElementById("courses");
+  getStarted.style.background = "#eee";
 }

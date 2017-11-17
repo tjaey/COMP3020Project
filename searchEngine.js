@@ -6,6 +6,8 @@ function searchEngine() {
   var input = document.getElementById("searchBar");
   var filter = input.value.toUpperCase();
 
+  filter = filter.replace(/\s+/g, '');
+
   getRidofSplash();
 
 
@@ -24,13 +26,16 @@ function searchEngine() {
   //  alert(innerDivs[i].hasAttribute('subject'))
 
     var tags = innerDivs[i].getElementsByTagName("li")
-    var code = tags[0];
-    var name = tags[1];
-    var prof = tags[2];
+    var code = tags[0].innerHTML;
+    code = code.replace(/\s+/g, '');
+    var name = tags[1].innerHTML;
+    name = name.replace(/\s+/g, '');
+    var prof = tags[2].innerHTML;
+    prof = prof.replace(/\s+/g, '');
     if (code && name && prof) {
-      if (code.innerHTML.toUpperCase().indexOf(filter) > -1
-      || name.innerHTML.toUpperCase().indexOf(filter) > -1
-      || prof.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      if (code.toUpperCase().indexOf(filter) > -1
+      || name.toUpperCase().indexOf(filter) > -1
+      || prof.toUpperCase().indexOf(filter) > -1) {
 
           innerDivs[i].style.display = "block";
       } else {
@@ -70,16 +75,57 @@ function clearFilters(){
 }
 
 function applyFilters(){
+  var subject = $('#subject').find(":selected").val();
+  if(subject == "def")
+    applyAll();
+  else if(subject == "cs"){
+    var course = $('#courseBox').find(":selected").text();
+    if(course == "(All)")
+      applyCriteria("COMP")
+    else {
+      applyCriteria(course.substring(0,7))
+    }
+  }
+}
+
+function applyAll(){
   var containerDiv = document.getElementById("allSections");
   var innerDivs = containerDiv.getElementsByTagName("div");
   for(var i=0; i<innerDivs.length; i++) // for all sections (div's)
   {
-    // if filters apply
     innerDivs[i].style.display = "block";
   }
   getRidofSplash();
   var noResults = document.getElementById("noResults");
   noResults.style.display = "none";
+}
+
+function applyCriteria(criteria){
+  var containerDiv = document.getElementById("allSections");
+  var innerDivs = containerDiv.getElementsByTagName("div");
+
+  // clear first
+  for(var i=0; i<innerDivs.length; i++) // for all sections (div's)
+  {
+    innerDivs[i].style.display = "none";
+  }
+
+  for(var i=0; i<innerDivs.length; i++) // for all sections (div's)
+  {
+    var tags = innerDivs[i].getElementsByTagName("li")
+    var code = tags[0];
+    if (code) {
+      if (code.innerHTML.toUpperCase().indexOf(criteria) > -1) {
+          innerDivs[i].style.display = "block";
+          //alert(code.innerHTML.toUpperCase());
+      } else {
+        innerDivs[i].style.display = "none";
+      }
+    }
+  }
+    getRidofSplash();
+    var noResults = document.getElementById("noResults");
+    noResults.style.display = "none";
 }
 
 function putCoursesBox(){

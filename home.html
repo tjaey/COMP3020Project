@@ -1,400 +1,318 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Home Dashboard</title>
+
+<script src="scripts/jquery-3.2.1.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="nav.css">
+
+<script src='scripts/moment.min.js'></script>
+<script src='scripts/fullcalendar.js'></script>
+<link rel='stylesheet' href='regcalander.css' />
+
+<script>
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    // put your options and callbacks here
+    height: 450,
+
+    defaultDate: "1/5/2015",
+    header:
+    {
+      left: 'title',
+      center:false,
+      right:  'prev,next',
+    },
+    titleFormat: '[2017 - 2018]',
+    defaultView: 'agendaWeek',
+    weekends: false,
+    minTime: "07:00:00",
+    maxTime: "21:00:00",
+    allDaySlot: false,
+
+    events: [
+      {
+        title: 'STAT 1000 A03',
+        start: 'Mon, 5 Jan 2015 10:30:00',
+        end: 'Mon, 5 Jan 2015 11:20:00',
+        color: 'orange',
+        textColor: 'black',
+      },
+      {
+        title: 'STAT 1000 A03',
+        start: 'Wed, 7 Jan 2015 10:30:00',
+        end: 'Wed, 7 Jan 2015 11:20:00',
+        color: 'orange',
+        textColor: 'black',
+      },
+      {
+        title: 'STAT 1000 A03',
+        start: 'Fri, 9 Jan 2015 10:30:00',
+        end: 'Fri, 9 Jan 2015 11:20:00',
+        color: 'orange',
+        textColor: 'black',
+      },
+
+      {
+        title: 'COMP 2130 A01',
+        start: 'Mon, 5 Jan 2015 12:30:00',
+        end: 'Mon, 5 Jan 2015 13:20:00',
+        color: 'lightgreen',
+        textColor: 'black',
+      },
+      {
+        title: 'COMP 2130 A01',
+        start: 'Wed, 7 Jan 2015 12:30:00',
+        end: 'Wed, 7 Jan 2015 13:20:00',
+        color: 'lightgreen',
+        textColor: 'black',
+      },
+      {
+        title: 'COMP 2130 A01',
+        start: 'Fri, 9 Jan 2015 12:30:00',
+        end: 'Fri, 9 Jan 2015 13:20:00',
+        color: 'lightgreen',
+        textColor: 'black',
+      },
+      {
+        title: 'COMP 2160 A01',
+        start: 'Tues, 6 Jan 2015 9:30:00',
+        end: 'Tues, 6 Jan 2015 10:45:00',
+      },
+      {
+        title: 'COMP 2160 A01',
+        start: 'Thurs, 8 Jan 2015 9:30:00',
+        end: 'Thurs, 8 Jan 2015 10:45:00',
+      },
+      {
+        title: 'COMP 2160 B08',
+        start: 'Thurs, 8 Jan 2015 12:00:00',
+        end: 'Thurs, 8 Jan 2015 13:00:00',
+      },
+
+      //*****************************************WINTER
+      {
+        title: 'COMP 2280 A02',
+        start: 'Tues, 13 Jan 2015 11:30:00',
+        end: 'Tues, 13 Jan 2015 12:45:00',
+        color: 'blue',
+      },
+      {
+        title: 'COMP 2280 A02',
+        start: 'Thurs, 15 Jan 2015 11:30:00',
+        end: 'Thurs, 15 Jan 2015 12:45:00',
+        color: 'blue',
+      },
+      {
+        title: 'COMP 2280 B06',
+        start: 'Thurs, 15 Jan 2015 13:00:00',
+        end: 'Thurs, 15 Jan 2015 14:00:00',
+        color: 'blue',
+      },
+
+      {
+        title: 'FAAH 1020 A01',
+        start: 'Mon, 12 Jan 2015 10:00:00',
+        end: 'Mon, 12 Jan 2015 10:50:00',
+        color: 'red',
+      },
+      {
+        title: 'FAAH 1020 A01',
+        start: 'Wed, 14 Jan 2015 10:00:00',
+        end: 'Wed, 14 Jan 2015 10:50:00',
+        color: 'red',
+      },
+      {
+        title: 'FAAH 1020 A01',
+        start: 'Fri, 16 Jan 2015 10:00:00',
+        end: 'Fri, 16 Jan 2015 10:50:00',
+        color: 'red',
+      },
+    ],
+    eventClick: function(event) {
+      if (event.url) {
+        window.open(event.url);
+        return false;
+      }
+    },
+    viewRender: function(currentView){
+      var minDate = moment('Mon, 5 Jan 2015 10:30:00'),
+      maxDate = moment('Thurs, 15 Jan 2015 24:30:00');
+      // Past
+      if (minDate >= currentView.start && minDate <= currentView.end) {
+        $(".fc-prev-button").prop('disabled', true);
+        $(".fc-prev-button").addClass('fc-state-disabled');
+      }
+      else {
+        $(".fc-prev-button").removeClass('fc-state-disabled');
+        $(".fc-prev-button").prop('disabled', false);
+      }
+      // Future
+      if (maxDate >= currentView.start && maxDate <= currentView.end) {
+        $(".fc-next-button").prop('disabled', true);
+        $(".fc-next-button").addClass('fc-state-disabled');
+      } else {
+        $(".fc-next-button").removeClass('fc-state-disabled');
+        $(".fc-next-button").prop('disabled', false);
+      }
+      $(".fc-day-header.fc-mon").html("Mon");
+      $(".fc-day-header.fc-tue").html("Tues");
+      $(".fc-day-header.fc-wed").html("Wed");
+      $(".fc-day-header.fc-thu").html("Thurs");
+      $(".fc-day-header.fc-fri").html("Fri");
+    }
+  });
+});
+</script>
+
+<script>
+  function toggleView(){
+    var list = document.getElementById('list');
+    var cv = document.getElementById('calendarView');
+
+    if($(list).css('display') !== 'none'){
+      list.style.display= 'none';
+      $("#calendar").css({"visibility": "visible"});
+      cv.style.height= '50%';
+    }
+    else{
+      list.style.display= 'block';
+      $("#calendar").css({"visibility": "hidden"});
+      cv.style.height= '0px';
+    }
+  }
+</script>
 <style>
-#menu{
-  background-color: blue;
-}
-#tables{
-  padding-bottom: 500px;
-  background-color: #dddddd;
-}
-a {
-  background-color: #f44336;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover, a:active {
-    background-color: red;
-}
-
-h1 {
-    text-align: center;
-}
-
-ul.drafts{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-li{
-  color: blue;
-  text-decoration: underline;
+th{
+  background-color: lightblue;
 }
 table{
-  padding: 0px;
-  background-color: #dddddd;
-  border-spacing: 0px;
-  border: 2px solid black;
-  empty-cells: show;
-  border-collapse: collapse;
-  text-align: center;
+  background-color: white;
 }
-th {
-    background-color: #bbbbbb;
-    border: 1px solid black;
-}
-th#day{
-  width: 60px;
-}
-td{
-  border-left: 1px solid black;
-}
-td#someclass{
+body{
   background-color: blue;
 }
-td#someclass2{
-  background-color: red;
+#contentWrapper{
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  min-height: 100%;
+  margin: auto;
+  text-align: center;
 }
-table#fall{
-  float: left;
+#tables{
+  background-color: #dddddd;
 }
-table#winter{
-  float: right;
+#calendarView{
+
+}
+#planning{
+  background-color: #aaaaaa;
+}
+#list{
+  display:none;
+  overflow: hidden;
+    background-color: white;
+}
+.h{
+    text
+}
+.lab{
+  padding-left: 10%;
+}
+#list ul{
+  display: inline-block;
+  *display: inline;
+  list-style: none;
+  text-align: left;
+  margin-top:0;
+  float:left;
+}
+#list h2{
+  margin-top: 1%;
+  margin-bottom: 0;
+}
+#innerLists{
+  width: 50%;
+  margin: 0 auto;
+}
+h1{
+    padding: 0;
+    margin: 0;
+}
+.btnToggle{
+  width: 100%;
+}
+.btn-drafts{
+  margin: 2%;
 }
 </style>
 </head>
 <body>
-<!-- TOP TOOLBAR -->
-<div id="menu">
-  <a href="menu.html" target="_blank">Search and Register</a>
-</div>
+  <!-- TOP TOOLBAR -->
+
+  <div id="nav">
+    <ul>
+      <li> <a target="_blank" href="" class="active">Home</a></li>
+      <li> <a href="search.html" target="search.html">Search and Register</a></li>
+      <li style="float:right;"> <a target="_blank" href="">Help</a></li>
+    </ul>
+  </div>
+
+  <div id="contentWrapper">
 <!-- COURSE TABLES SECTION -->
 <div id="tables">
-  <h1>Current Courses </h1> <h2>2017 - 2018</h2>
-  <table id="fall">
-    <tr>
-      <th colspan="8">Fall</th>
-    </tr>
-    <tr>
-      <th>Time</th>
-      <th id="day">Sun</th>
-      <th id="day">Mon</th>
-      <th id="day">Tues</th>
-      <th id="day">Wed</th>
-      <th id="day">Thurs</th>
-      <th id="day">Fri</th>
-      <th id="day">Sat</th>
-    </tr>
-    <tr>
-      <th> 7:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 8:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 9:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 10:00 </th>
-      <td></td>
-      <td id="someclass"></td>
-      <td></td>
-      <td id="someclass"></td>
-      <td></td>
-      <td id="someclass"></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 11:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 12:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 1:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 2:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 3:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 4:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 5:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 6:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 7:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 8:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-  <table id="winter">
-    <tr>
-      <th colspan="8">Winter</th>
-    </tr>
-    <tr>
-      <th>Time</th>
-      <th id="day">Sun</th>
-      <th id="day">Mon</th>
-      <th id="day">Tues</th>
-      <th id="day">Wed</th>
-      <th id="day">Thurs</th>
-      <th id="day">Fri</th>
-      <th id="day">Sat</th>
-    </tr>
-    <tr>
-      <th> 7:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 8:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 9:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 10:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 11:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 12:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 1:00 </th>
-      <td></td>
-      <td></td>
-      <td id="someclass2"></td>
-      <td></td>
-      <td  id="someclass2"></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 2:00 </th>
-      <td></td>
-      <td></td>
-      <td id="someclass2"></td>
-      <td></td>
-      <td id="someclass2"></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 3:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 4:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 5:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 6:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 7:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th> 8:00 </th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+<h1> My Registered Courses </h1>
+<span> Click a section for more details. </span><br><br>
+ <button class="btnToggle"onclick="toggleView()">Toggle list / timetable view</button>
+<div id="list">
+  <h2> 2017 - 2018 </h2>
+  <div id="innerLists">
+  <ul id="listWinter">
+    <li class="h"><h3> Winter </h3> </li>
+    <li> <a href="">STAT 1000 A03</a> </li>
+    <li> <a href="">COMP 2130 A01</a> </li>
+    <li> <a href="">COMP 2160 A01</a> </li>
+    <li class="lab"> <a href="">COMP 2160 B01</a> </li>
+  </ul>
+  <ul id="listFall">
+    <li class="h"><h3> Fall </h3> </li>
+    <li> <a href="">FAAH 1020 A01</a> </li>
+    <li> <a href="">COMP 2280 A02</a> </li>
+    <li class="lab"> <a href="">COMP 2280 B06</a> </li>
+  </ul>
 </div>
+</div>
+<div id="calendarView">
+<div id='calendar'></div>
+</div>
+</div>
+
+<div id="split" style="background-color:blue;height:20px;"></div>
 <!-- "PLANNING" SECTION -->
 <div id="planning">
   <h1>Planning</h1>
-  <ul id="drafts">
-    <li> Draft #1 (view)</li>
-    <li> Draft #2 (view)</li>
-  </ul>
-</div>
+  <button class="btn btn-drafts" data-toggle="modal" data-target="#myModal">View / Edit Timetable Drafts</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:80%;height:80%;">
+      <div class="modal-content" style="width:100%;height:100%;">
+        <div class="modal-body" style="width:100%;height:100%;">
+            <iframe src="draftWidget/draftsPopup-home.html" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
 
+</div>
+<div id="bottomPad" style="background-color:blue;height:40px;"></div>
+</div>
 </body>
 </html>

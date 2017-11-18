@@ -22,6 +22,7 @@ $(document).ready(function() {
                 end: 'Mon, 5 Jan 2015 11:20:00',
                 color: 'red',
                 textColor: 'black',
+                url: " ",
               },
               {
                 title: 'STAT 1000 A03',
@@ -29,6 +30,7 @@ $(document).ready(function() {
                 end: 'Wed, 7 Jan 2015 11:20:00',
                 color: 'red',
                 textColor: 'black',
+                url: " ",
               },
               {
                 title: 'STAT 1000 A03',
@@ -36,27 +38,31 @@ $(document).ready(function() {
                 end: 'Fri, 9 Jan 2015 11:20:00',
                 color: 'red',
                 textColor: 'black',
+                url: " ",
               },
 
               {
                 title: 'COMP 2160 A01',
                 start: 'Tues, 6 Jan 2015 9:30:00',
                 end: 'Tues, 6 Jan 2015 10:45:00',
+                url: " ",
               },
               {
                 title: 'COMP 2160 A01',
                 start: 'Thurs, 8 Jan 2015 9:30:00',
                 end: 'Thurs, 8 Jan 2015 10:45:00',
+                url: " ",
               },
               {
                 title: 'COMP 2160 B08',
                 start: 'Thurs, 8 Jan 2015 12:00:00',
                 end: 'Thurs, 8 Jan 2015 13:00:00',
+                url: " ",
               },
             ],
             eventClick: function(event) {
               if (event.url) {
-                window.open(event.url);
+                alert('Course Details: ....... \n [Remove From Timetable]')
                 return false;
               }
             }

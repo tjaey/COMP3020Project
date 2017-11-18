@@ -16,6 +16,7 @@
 
 <script>
 $(document).ready(function() {
+  toggleView();
   $('#calendar').fullCalendar({
     // put your options and callbacks here
     height: 450,
@@ -41,6 +42,7 @@ $(document).ready(function() {
         end: 'Mon, 5 Jan 2015 11:20:00',
         color: 'orange',
         textColor: 'black',
+        url: " ",
       },
       {
         title: 'STAT 1000 A03',
@@ -48,6 +50,7 @@ $(document).ready(function() {
         end: 'Wed, 7 Jan 2015 11:20:00',
         color: 'orange',
         textColor: 'black',
+        url: " ",
       },
       {
         title: 'STAT 1000 A03',
@@ -55,6 +58,7 @@ $(document).ready(function() {
         end: 'Fri, 9 Jan 2015 11:20:00',
         color: 'orange',
         textColor: 'black',
+        url: " ",
       },
 
       {
@@ -63,6 +67,7 @@ $(document).ready(function() {
         end: 'Mon, 5 Jan 2015 13:20:00',
         color: 'lightgreen',
         textColor: 'black',
+        url: " ",
       },
       {
         title: 'COMP 2130 A01',
@@ -70,6 +75,7 @@ $(document).ready(function() {
         end: 'Wed, 7 Jan 2015 13:20:00',
         color: 'lightgreen',
         textColor: 'black',
+        url: " ",
       },
       {
         title: 'COMP 2130 A01',
@@ -77,21 +83,25 @@ $(document).ready(function() {
         end: 'Fri, 9 Jan 2015 13:20:00',
         color: 'lightgreen',
         textColor: 'black',
+        url: " ",
       },
       {
         title: 'COMP 2160 A01',
         start: 'Tues, 6 Jan 2015 9:30:00',
         end: 'Tues, 6 Jan 2015 10:45:00',
+        url: " ",
       },
       {
         title: 'COMP 2160 A01',
         start: 'Thurs, 8 Jan 2015 9:30:00',
         end: 'Thurs, 8 Jan 2015 10:45:00',
+        url: " ",
       },
       {
         title: 'COMP 2160 B08',
         start: 'Thurs, 8 Jan 2015 12:00:00',
         end: 'Thurs, 8 Jan 2015 13:00:00',
+        url: " ",
       },
 
       //*****************************************WINTER
@@ -100,18 +110,21 @@ $(document).ready(function() {
         start: 'Tues, 13 Jan 2015 11:30:00',
         end: 'Tues, 13 Jan 2015 12:45:00',
         color: 'blue',
+        url: " ",
       },
       {
         title: 'COMP 2280 A02',
         start: 'Thurs, 15 Jan 2015 11:30:00',
         end: 'Thurs, 15 Jan 2015 12:45:00',
         color: 'blue',
+        url: " ",
       },
       {
         title: 'COMP 2280 B06',
         start: 'Thurs, 15 Jan 2015 13:00:00',
         end: 'Thurs, 15 Jan 2015 14:00:00',
         color: 'blue',
+        url: " ",
       },
 
       {
@@ -119,23 +132,26 @@ $(document).ready(function() {
         start: 'Mon, 12 Jan 2015 10:00:00',
         end: 'Mon, 12 Jan 2015 10:50:00',
         color: 'red',
+        url: " ",
       },
       {
         title: 'FAAH 1020 A01',
         start: 'Wed, 14 Jan 2015 10:00:00',
         end: 'Wed, 14 Jan 2015 10:50:00',
         color: 'red',
+        url: " ",
       },
       {
         title: 'FAAH 1020 A01',
         start: 'Fri, 16 Jan 2015 10:00:00',
         end: 'Fri, 16 Jan 2015 10:50:00',
         color: 'red',
+        url: " ",
       },
     ],
     eventClick: function(event) {
       if (event.url) {
-        window.open(event.url);
+        alert('Not functional in prototype - \n Use List View instead for same result')
         return false;
       }
     },
@@ -208,7 +224,7 @@ body{
   background-color: #dddddd;
 }
 #calendarView{
-
+overflow: hidden;
 }
 #planning{
   background-color: #aaaaaa;
@@ -272,23 +288,24 @@ h1{
 <div id="list">
   <h2> 2017 - 2018 </h2>
   <div id="innerLists">
+  <ul id="listFall">
+    <li class="h"><h3> Fall </h3> </li>
+    <li> <a href="">FAAH 1020 A01</a> </li>
+    <li> <a href="">COMP 2280 A02</a> </li>
+    <li class="lab"> <a href="">- COMP 2280 B06</a> </li>
+  </ul>
   <ul id="listWinter">
     <li class="h"><h3> Winter </h3> </li>
     <li> <a href="">STAT 1000 A03</a> </li>
     <li> <a href="">COMP 2130 A01</a> </li>
     <li> <a href="">COMP 2160 A01</a> </li>
-    <li class="lab"> <a href="">COMP 2160 B01</a> </li>
-  </ul>
-  <ul id="listFall">
-    <li class="h"><h3> Fall </h3> </li>
-    <li> <a href="">FAAH 1020 A01</a> </li>
-    <li> <a href="">COMP 2280 A02</a> </li>
-    <li class="lab"> <a href="">COMP 2280 B06</a> </li>
+    <li class="lab"> <a href="">- COMP 2160 B01</a> </li>
   </ul>
 </div>
 </div>
 <div id="calendarView">
 <div id='calendar'></div>
+<button style="float:right;"> Print </button>
 </div>
 </div>
 

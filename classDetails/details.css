@@ -1,0 +1,12 @@
+.btn{
+  padding:2%;
+  background-color: #aaa;
+  width: 30%;
+  text-align: center;
+  border: 2px solid black;
+}
+.btn:hover{
+  background-color: #777;
+  border: 2px inset black;
+  cursor: pointer;
+}

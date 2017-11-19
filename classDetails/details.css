@@ -1,11 +1,29 @@
-.btn{
+body{
+  height:100%;
+  min-height: 120%;
+  width: 100%;
+}
+#modal{
+  /* (ENTIRE BODY) */
+  text-align: left;
+  margin: auto auto;
+}
+#modal th, td{
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+#modal td{
+  padding: 3%;
+}
+.modalbtn{
   padding:2%;
   background-color: #aaa;
   width: 30%;
   text-align: center;
   border: 2px solid black;
 }
-.btn:hover{
+.modalbtn:hover{
   background-color: #777;
   border: 2px inset black;
   cursor: pointer;

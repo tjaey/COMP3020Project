@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="details.css">
+</head>
+<script src="dropCourses.js"></script>
+<body>
+  <div id="modal">
+  <h1>COMP 2130: A01</h1>
+  <span>Discrete Math for Computer Science</span><br>
+  <span>CRN: 101567</span><br>
+  <table>
+    <tr>
+      <th>Instructor:</th>
+      <td>Dr. John Smith</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th>Capacity:</th>
+      <td>60 / 60</td>
+    </tr>
+    <tr>
+      <th>Waitlist:</th>
+      <td>23 / 100</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th>MWF</th>
+      <td>12:30 AM - 1:10 PM</td>
+      <td>105 Armes</td>
+    </tr>
+  </table>
+  <div id="confirm">
+    <span> Are you sure you want to drop this course? </span>
+    <br>
+    Enter Password:
+    <input id="pw" type="password"></input>
+    <div class="Modulbtn" onclick="parent.dropped();">Confrim</div>
+  </div>
+  <div class="Modulbtn" onclick="drop();"id="drop">Drop Course</div>
+</div>
+</body>
+
+</html>

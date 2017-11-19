@@ -16,7 +16,6 @@
 
 <script>
 $(document).ready(function() {
-  toggleView();
   $('#calendar').fullCalendar({
     // put your options and callbacks here
     height: 450,
@@ -62,6 +61,7 @@ $(document).ready(function() {
       },
 
       {
+        id: 2130,
         title: 'COMP 2130 A01',
         start: 'Mon, 5 Jan 2015 12:30:00',
         end: 'Mon, 5 Jan 2015 13:20:00',
@@ -70,6 +70,7 @@ $(document).ready(function() {
         url: " ",
       },
       {
+        id: 2130,
         title: 'COMP 2130 A01',
         start: 'Wed, 7 Jan 2015 12:30:00',
         end: 'Wed, 7 Jan 2015 13:20:00',
@@ -78,6 +79,7 @@ $(document).ready(function() {
         url: " ",
       },
       {
+        id: 2130,
         title: 'COMP 2130 A01',
         start: 'Fri, 9 Jan 2015 12:30:00',
         end: 'Fri, 9 Jan 2015 13:20:00',
@@ -92,6 +94,7 @@ $(document).ready(function() {
         url: " ",
       },
       {
+
         title: 'COMP 2160 A01',
         start: 'Thurs, 8 Jan 2015 9:30:00',
         end: 'Thurs, 8 Jan 2015 10:45:00',
@@ -150,10 +153,11 @@ $(document).ready(function() {
       },
     ],
     eventClick: function(event) {
-      if (event.url) {
-        alert('Not functional in prototype - \n Use List View instead for same result')
+        if(event.id == 2130)
+          $("#classModal").modal("show");
+       else
+          $("#classModal2").modal("show");
         return false;
-      }
     },
     viewRender: function(currentView){
       var minDate = moment('Mon, 5 Jan 2015 10:30:00'),
@@ -232,7 +236,7 @@ overflow: hidden;
 #list{
   display:none;
   overflow: hidden;
-    background-color: white;
+  background-color: white;
 }
 .h{
     text
@@ -266,6 +270,12 @@ h1{
 .btn-drafts{
   margin: 2%;
 }
+li{
+  color:blue;
+}
+li.h{
+  color:black;
+}
 </style>
 </head>
 <body>
@@ -290,16 +300,16 @@ h1{
   <div id="innerLists">
   <ul id="listFall">
     <li class="h"><h3> Fall </h3> </li>
-    <li> <a href="" data-toggle="modal" data-target="#classModal">COMP 2130 A01</a> </li>
-    <li> <a href="">COMP 2160 A01</a> </li>
-    <li class="lab"> <a href="">- COMP 2160 B01</a> </li>
-    <li> <a href="">STAT 1000 A03</a> </li>
+    <li id="2130"> <a href="" data-toggle="modal" data-target="#classModal">COMP 2130 A01</a> </li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">COMP 2160 A01 </a></li>
+    <li class="lab"> <a href="" data-toggle="modal" data-target="#classModal2">- COMP 2160 B01</a></a></li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">STAT 1000 A03</li>
   </ul>
   <ul id="listWinter">
     <li class="h"><h3> Winter </h3> </li>
-    <li> <a href="">COMP 2280 A02</a> </li>
-    <li class="lab"> <a href="">- COMP 2280 B06</a> </li>
-    <li> <a href="">FAAH 1020 A01</a> </li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">COMP 2280 A02</a></li>
+    <li class="lab"> <a href="" data-toggle="modal" data-target="#classModal2">- COMP 2280 B06</a></li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">FAAH 1020 A01</a> </li>
   </ul>
 </div>
 </div>
@@ -308,7 +318,7 @@ h1{
 <button style="float:right;"> Print </button>
 </div>
 
-<!-- Details Modal -->
+<!-- 2130 Deets Modal -->
 <div class="modal fade" id="classModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" style="width:40%;height:60%;">
     <div class="modal-content" style="width:100%;height:100%;">
@@ -321,7 +331,23 @@ h1{
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<!-- 2160 Deets Modal -->
+<div class="modal fade" id="classModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:40%;height:60%;">
+    <div class="modal-content" style="width:100%;height:100%;">
+      <div class="modal-body" style="width:100%;height:100%;">
+          <iframe src="classDetails/others.html" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
 </div>
+<!-- /.modal -->
+
+</div>
+
 
 <div id="split" style="background-color:blue;height:20px;"></div>
 <!-- "PLANNING" SECTION -->
@@ -345,5 +371,12 @@ h1{
 </div>
 <div id="bottomPad" style="background-color:blue;height:40px;"></div>
 </div>
+<script>
+function dropped(){
+      $('#classModal').modal('hide');
+      $('#2130').hide();
+      $('#calendar').fullCalendar('removeEvents',2130);
+}
+</script>
 </body>
 </html>

@@ -32,7 +32,14 @@
       <td>105 Armes</td>
     </tr>
   </table>
-  <div class="btn" onclick="drop();">Drop Course</div>
+  <div id="confirm">
+    <span> Are you sure you want to drop this course? </span>
+    <br>
+    Enter Password:
+    <input id="pw" type="password"></input>
+    <div class="btn" onclick="parent.dropped();">Confrim</div>
+  </div>
+  <div class="btn" onclick="drop();"id="drop">Drop Course</div>
 </body>
 
 </html>

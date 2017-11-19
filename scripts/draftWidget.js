@@ -61,10 +61,8 @@ $(document).ready(function() {
               },
             ],
             eventClick: function(event) {
-              if (event.url) {
-                alert('Course Details: ....... \n [Remove From Timetable]')
+                $("#classModal2").modal("show");
                 return false;
-              }
             }
 });
   $(".fc-day-header.fc-mon").html("Mon");

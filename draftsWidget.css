@@ -1,7 +1,7 @@
 .fc-time-grid .fc-slats td {
     height: 2em;
 }
-.btn{
+.btn_drafts{
   text-align: center;
   background-color: #ddd;
   border: 2px outset white;
@@ -9,29 +9,31 @@
   padding: 10px;
   width: 100%;
 }
-.btn#addDraft{
+#addDraft{
   background-color: green;
   text-align: center;
   border: 1px solid green;
   padding: 1px;
   border: 2px outset black;
 }
-.btn#addDraft:hover{
+#addDraft:hover{
   background-color: green;
   border: 2px inset green;
+    cursor: pointer;
 }
-.btn#delDraft{
+#delDraft{
   background-color: red;
   text-align: center;
   border: 1px solid red;
   padding: 1px;
   border: 2px outset black;
 }
-.btn#delDraft:hover{
+#delDraft:hover{
   background-color: red;
   border: 2px inset red;
+    cursor: pointer;
 }
-.btn:hover{
+.btn_drafts:hover{
   cursor: pointer;
   border: 2px inset black;
   background-color: white;

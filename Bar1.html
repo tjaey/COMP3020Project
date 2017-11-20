@@ -9,8 +9,7 @@
         var s = today.getSeconds();
         m = checkTime(m);
         s = checkTime(s);
-        document.getElementById('txt').innerHTML =
-        h + ":" + m + ":" + s;
+        document.getElementById('txt').innerHTML = "Server Time: " + h + ":" + m + ":" + s + "\t\t";
         var t = setTimeout(startTime, 500);
     }
     function checkTime(i) {
@@ -32,24 +31,47 @@
       font-size: 100% ;
     }
 
-    .time {
-        margin-top: -5%;
-        margin-bottom: -5%;
-        text-align: right ;
-        font-size: 200% ;
-        margin-left: 2% ;
-
-    }
-
     .imgcontainer {
         text-align: left ;
-        margin-top: 2%;
+        /*margin-top: 2%;*/
         margin-bottom: 2%;
         background-color: #b35900 ;
         padding-top: 2% ;
         padding-bottom: 2%;
         padding-right: 2%;
         padding-left: 2%; 
+        box-shadow: 0px 0px 10px 5px grey ;
+    }
+
+    .time {
+        margin-top: -5%;
+        margin-bottom: -5%;
+        text-align: right ;
+        font-size: 150% ;
+        margin-left: 2% ;
+
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    img {
+        /*box-shadow: 0px 0px 10px 5px #c96502 ;*/
     }
 
     ul {
@@ -58,10 +80,12 @@
         padding: 0;
         overflow: hidden;
         background-color: #964B00;
+        box-shadow: 0px 0px 5px 5px #7c3e00 ;
     }
 
     li {
         float: left;
+        box-shadow: 0px 0px 5px 5px #7c3e00 ;
     }
 
     li a {
@@ -70,32 +94,40 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+
     }
 
     li a:hover {
         background-color: #D4AF37;
     }
 
+    .cdr {
+        margin-top: 0% ;
+    }
+
 
 
 </style>
 </head>
-
+<!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; height="10%" width="20%"> -->
 <body onload="startTime()">
 	<div class="imgcontainer">
-        <pre>
-            <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; height="10%" width="20%"> -->
-            <div class="time" id="txt"></div>
+        <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%"> -->
+        <pre class="time">
+
+
+            Thusday, Sept 27, 2017           <div id="txt"></div><a class="cdr" href="">Countdown till registration</a>           
+
         </pre>
         <!-- <div class="time"> -->
             <!-- <p style="text-align: right"> -->
                 <!-- Server Time -->
             <!-- </p> -->
         <!-- <img src="UM_l_bwn_horz.png" hspace="2%"; alt="Logo"; height="10%" width="20%"> -->
-        <img src="UM_l_bwn_horz.png"; alt="Logo"; height="10%" width="30%">
+        <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%">
         <div id="profile">
-            <p>         Student Info </p>    
-            <a href=""> Sign Out     </a>
+            <p>John Somebody 1234567 </p>   
+            <a href="Login_.html">Sign Out</a>
         </div>
 
     <ul>

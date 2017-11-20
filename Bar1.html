@@ -16,6 +16,13 @@
         if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
         return i;
     }
+    function notify(){
+      var div = document.getElementById("notify");
+      if(div.style.display=="block")
+        div.style.display="none";
+      else
+          div.style.display="block";
+    }
     </script>
 
 <style>
@@ -27,55 +34,50 @@
     #profile{
       float:right;
       color:white;
-      padding-right: 2% ;
+      padding-right: 2%;
       font-size: 100% ;
     }
-
+    #btn_notify{
+      background-color: yellow;
+      padding: 5px;
+      text-align: center;
+      width: 50%;
+    }
+    #notify{
+      padding: 5%;
+      background-color: gray;
+      position: absolute;
+      display: none;
+    }
     .imgcontainer {
         text-align: left ;
         /*margin-top: 2%;*/
         margin-bottom: 2%;
         background-color: #b35900 ;
-        padding-top: 2% ;
-        padding-bottom: 2%;
-        padding-right: 2%;
-        padding-left: 2%; 
+        padding-top: 1% ;
+        padding-left: 2% ;
+        padding-right: 2% ;
+        padding-bottom: 2% ;
         box-shadow: 0px 0px 10px 5px grey ;
     }
 
     .time {
-        margin-top: -5%;
-        margin-bottom: -5%;
-        text-align: right ;
-        font-size: 150% ;
-        margin-left: 2% ;
+        position: relative;
+        float: right;
+        text-align: left ;
+        font-size: 120% ;
+        margin-right: 8% ;
 
     }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-
-        /* Position the tooltip */
-        position: absolute;
-        z-index: 1;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }
-
     img {
         /*box-shadow: 0px 0px 10px 5px #c96502 ;*/
+        float: left;
+        margin-bottom: 2%;
     }
 
     ul {
         list-style-type: none;
+        width: 100%;
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -112,28 +114,49 @@
 <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; height="10%" width="20%"> -->
 <body onload="startTime()">
 	<div class="imgcontainer">
+    <!-- <img src="UM_l_bwn_horz.png" hspace="2%"; alt="Logo"; height="10%" width="20%"> -->
+    <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%">
+
         <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%"> -->
-        <pre class="time">
+        <div id="profile">
+            <table class="profile">
+              <!-- <tr> <td>Signed in: </td></tr> -->
+              <tr> <td></td><td>John Student</td> </tr>
+              <tr> <td></td><td> 7759384</td> </tr>
+            <!--  <tr> <td></td><td>Faculty of Science</td> </tr>
+              <tr> <td>Major: </td><td>Computer Science</td></tr> -->
+              <tr><td></td><td><a href="Login_.html">Sign Out</a></td></tr>
+            </table>
+        </div>
 
 
-            Thusday, Sept 27, 2017           <div id="txt"></div><a class="cdr" href="">Countdown till registration</a>           
-
-        </pre>
+        <div class="time">
+            My Registration Time:<br>
+            8:00 AM | August 25th 2017<br>
+            <div id="btn_notify" class="btn" onclick="notify()">Notify Me</div>
+            <div id="notify">
+              <input type="checkbox">Email</input>
+              <input type="text"></input><br>
+              <input type="checkbox">Phone</input>
+               <input type="text"></input><br>
+               <input type="checkbox">1 Week Before</input><br>
+               <input type="checkbox">24 Hours Before</input><br>
+               <input type="checkbox">1 Hour Before</input><br>
+            </div>
+        </div>
+        <div class="time">
+            Thusday, Sept 27, 2017<br>
+            <div id="txt"></div>
+        </div>
         <!-- <div class="time"> -->
             <!-- <p style="text-align: right"> -->
                 <!-- Server Time -->
             <!-- </p> -->
-        <!-- <img src="UM_l_bwn_horz.png" hspace="2%"; alt="Logo"; height="10%" width="20%"> -->
-        <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%">
-        <div id="profile">
-            <p>John Somebody 1234567 </p>   
-            <a href="Login_.html">Sign Out</a>
-        </div>
 
     <ul>
         <li><a class="active" href="">Home</a></li>
         <li><a href="">Search and Register</a></li>
     </ul>
-	
+
 </body>
 </html>

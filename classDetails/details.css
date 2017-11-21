@@ -3,6 +3,9 @@ body{
   min-height: 120%;
   width: 100%;
 }
+table{
+  text-align: left;
+}
 #modal{
   /* (ENTIRE BODY) */
   text-align: left;

@@ -27,12 +27,6 @@
     </script>
 
 <style>
-    #profile{
-      float:right;
-      color:white;
-      padding-right: 2%;
-      font-size: 100% ;
-    }
     #btn_notify{
       padding: 5px;
       margin: 3%;
@@ -78,7 +72,7 @@
         float: right;
         text-align: left ;
         font-size: 120% ;
-        margin-right: 8% ;
+        margin-right: 5% ;
 
     }
     #menu ul {
@@ -117,10 +111,31 @@
     }
 
     #menu img{
-      float:left;
-      width: 14%;
+      position: block;
+      padding-top: 0;
       padding-bottom: 0;
       margin-bottom: 0;
+    }
+    #menu table, td, tr{
+      position: block;
+      background-color:#004A80;
+      color: white;
+      padding: 0;
+      padding-bottom: 2px;
+      margin: 0 auto;
+
+    }
+    #profile{
+      position: block;
+      float: right;
+      color:white;
+      font-size: 100% ;
+      width: 20%;
+      border-left: 2px solid lightblue;
+    }
+    #logout{
+      float:right;
+      text-decoration: underline;
     }
 
 </style>
@@ -135,13 +150,12 @@
 
         <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%"> -->
         <div id="profile">
-            <table class="profile">
-              <!-- <tr> <td>Signed in: </td></tr> -->
-              <tr> <td></td><td>John Student</td> </tr>
-              <tr> <td></td><td> 7759384</td> </tr>
-            <!--  <tr> <td></td><td>Faculty of Science</td> </tr>
-              <tr> <td>Major: </td><td>Computer Science</td></tr> -->
-              <tr><td></td><td><a href="Login_.html">Sign Out</a></td></tr>
+          <table class="profile">
+            <!-- <tr> <td>Signed in: </td></tr> -->
+            <tr> <td>John Student</td><td style="padding-left:30px;">Faculty of Science</td></tr>
+            <tr> <td> 7759384</td><td style="padding-left:30px;"> Computer Science</td></tr>
+            <tr><td></td><td id="logout"><a href="Login_.html">Sign Out</a></td></tr>
+            <!-- <tr> <td>Signed in: </td></tr> -->
             </table>
         </div>
 

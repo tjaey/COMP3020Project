@@ -39,7 +39,7 @@
   }
   #bodyWrapper{
     height:80%;
-    background-color: white;
+    background-color: #fff;
   }
   #wrapper{
     padding-bottom: 30px;
@@ -91,14 +91,15 @@
   .btn-drafts{
     position: fixed;
     right:0;
-    margin-right: 4%;
+    margin-right: 1%;
     margin-top: 2%;
-    background-color: green;
-    width:14%;
-    height: 14%;
-    white-space: normal;
-    color:white;
-    font-size: 18px;
+    background-image: url(draftButton.png);
+    background-repeat: no-repeat;
+    width: 252px;
+    height: 224px;
+    border: 3px outset white;
+    z-index: 1;
+    box-shadow: 0px 0px 10px 1px gray ;
   }
   .btn:hover{
     cursor: pointer;
@@ -106,7 +107,7 @@
     background-color: #aaa;
   }
   .btn-drafts:hover{
-    background-color: green;
+      border: 3px inset blue;
   }
   .btn_reqs{
     background-color: #eeeedd;
@@ -264,7 +265,7 @@
   </div>
   <div id="bodyWrapper">
 
-  <button class="btn btn-drafts" data-toggle="modal" data-target="#myModal">View Timetable planning & Registered Courses</button>
+  <button class="btn btn-drafts" data-toggle="modal" data-target="#myModal"></button>
 
 <!-- Filters Sidebar-->
     <div id="filters">
@@ -293,7 +294,7 @@
         </select>
       </br>
         Course: <br>
-        <select id="courseBox" disabled name="coursubject" size="5" multiple>
+        <select id="courseBox" disabled name="coursubject" size="5" style="width:90%;"multiple>
             <option value="def" class="def" id="courseAll" selected="true">(All)</option>
         </select>
       </form>

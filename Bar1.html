@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="menubar.css">
     <script>
     function startTime() {
         var today = new Date();
@@ -25,137 +26,19 @@
           div.style.display="block";
     }
     </script>
-
-<style>
-    #btn_notify{
-      padding: 5px;
-      margin: 3%;
-      margin-left: -1%;
-      margin-bottom: 7%;
-      text-align: center;
-      width: 50%;
-      color:white;
-      border-radius: 25px;
-      box-shadow: 0px 0px 10px 1px white ;
-    }
-    #btn_notify:hover{
-      cursor: pointer;
-      background-color: #63a5f2;
-    }
-    #notify{
-      padding: 5%;
-      background-color: #003471;
-      position: absolute;
-      width: 220px;
-      display: none;
-      color: white;
-      margin-left: 60% ;
-      margin-top: -22%;
-      border-radius: 25px;
-      border: 1px solid white;
-    }
-    #menu {
-        text-align: left ;
-        /*margin-top: 2%;*/
-        margin-bottom: 1.5%;
-        background-color: #004A80 ;
-        padding-top: 1% ;
-        padding-left: 2% ;
-        padding-right: 2% ;
-        padding-bottom: 1.5% ;
-        box-shadow: 0px 0px 10px 5px grey ;
-        color: white;
-    }
-
-    #menu .time {
-        position: relative;
-        float: right;
-        text-align: left ;
-        font-size: 120% ;
-        margin-right: 5% ;
-
-    }
-    #menu ul {
-        list-style-type: none;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #003471;
-        box-shadow: 0px 0px 10px 2px #001451;
-    }
-
-    #menu li {
-        float: left;
-        box-shadow: 0px 0px 5px 2px #001451 ;
-    }
-
-    #menu li, a {
-        display: block;
-        text-align: center;
-        padding: 6px 8px;
-        text-decoration: none;
-        color: white;
-    }
-
-    #menu li:hover, .active {
-        background-color: lightblue;
-        color: black;
-    }
-    #menu li:hover, .active a {
-        color: black;
-    }
-
-    #menu .cdr {
-        margin-top: 0% ;
-    }
-
-    #menu img{
-      position: block;
-      padding-top: 0;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-    #menu table, td, tr{
-      position: block;
-      background-color:#004A80;
-      color: white;
-      padding: 0;
-      padding-bottom: 2px;
-      margin: 0 auto;
-
-    }
-    #profile{
-      position: block;
-      float: right;
-      color:white;
-      font-size: 100% ;
-      width: 20%;
-      border-left: 2px solid lightblue;
-    }
-    #logout{
-      float:right;
-      text-decoration: underline;
-    }
-
-</style>
 </head>
 
 <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; height="10%" width="20%"> -->
 <body onload="startTime()">
 
 	<div id="menu">
-    <!-- <img src="UM_l_bwn_horz.png" hspace="2%"; alt="Logo"; height="10%" width="20%"> -->
     <img src="logo.png"; alt="Logo";>
 
-        <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%"> -->
         <div id="profile">
           <table class="profile">
-            <!-- <tr> <td>Signed in: </td></tr> -->
             <tr> <td>John Student</td><td style="padding-left:30px;">Faculty of Science</td></tr>
             <tr> <td> 7759384</td><td style="padding-left:30px;"> Computer Science</td></tr>
             <tr><td></td><td id="logout"><a href="Login_.html">Sign Out</a></td></tr>
-            <!-- <tr> <td>Signed in: </td></tr> -->
             </table>
         </div>
 
@@ -179,10 +62,6 @@
             Thusday, Sept 27, 2017<br>
             <div id="txt"></div>
         </div>
-        <!-- <div class="time"> -->
-            <!-- <p style="text-align: right"> -->
-                <!-- Server Time -->
-            <!-- </p> -->
 
     <ul>
         <li  class="active"><a href="home.html">Home</a></li>

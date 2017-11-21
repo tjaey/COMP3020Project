@@ -13,7 +13,19 @@
 <script src="scripts/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="nav.css">
-
+<link rel="stylesheet" type="text/css" href="menubar.css">
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = "Server Time: " + h + ":" + m + ":" + s + "\t\t";
+    var t = setTimeout(startTime, 500);
+}
+</script>
 <style>
   html{
     height: 100%;
@@ -27,16 +39,6 @@
     background-color: #fff;
   }
 
-  #menu{
-    background-color: #333;
-    min-height: 10%;
-    height: 80px;
-    padding: 10px;
-  }
-  #profile{
-    float:right;
-    color:white;
-  }
   #bodyWrapper{
     height:80%;
     background-color: #fff;
@@ -59,7 +61,7 @@
   #courses ul{
       list-style-type: none;
   }
-  .btn{
+  #bodyWrapper .btn{
     text-align: center;
     background-color: #ddd;
     border: 2px outset white;
@@ -67,7 +69,7 @@
     padding: 10px;
     width: 100%;
   }
-  .btn-drafts{
+  #bodyWrapper .btn-drafts{
     position: fixed;
     right:0;
     margin-right: 1%;
@@ -79,15 +81,15 @@
     border: 3px outset white;
     box-shadow: 0px 0px 10px 1px gray ;
   }
-  .btn:hover{
+  #bodyWrapper .btn:hover{
     cursor: pointer;
     border: 2px inset gray;
     background-color: #aaa;
   }
-  .btn-drafts:hover{
+  #bodyWrapper .btn-drafts:hover{
       border: 3px inset blue;
   }
-  .btn_reqs{
+  #bodyWrapper .btn_reqs{
     background-color: #eeeedd;
     text-align: center;
     border: 2px solid black;
@@ -151,14 +153,14 @@
     padding: 2%;
     border: 0;
   }
-  button.accordion {
+  #bodyWrapper button.accordion {
     cursor: pointer;
     text-align: left;
     transition: 0.4s;
     width:100%;
 
   }
-  button.accordion.active, button.accordion:hover {
+  #bodyWrapper button.accordion.active, button.accordion:hover {
       background-color: #eee;
   }
   /* Style the accordion panel. Note: hidden by default */
@@ -215,7 +217,7 @@
     left:0;
     top:0;
   }
-  input.searchIcon{
+  #bodyWrapper input.searchIcon{
     top:0;
     right:0;
     border: 0px;
@@ -257,7 +259,7 @@
   #section table{
     width: 100%;
   }
-  table.sec_days td{
+  #bodyWrapper table.sec_days td{
     border-top: 2px solid gray;
   }
   .section_btn{
@@ -273,11 +275,11 @@
     cursor: pointer;
     background-color: #222;
   }
-  .regbtn{
+#bodyWrapper   .regbtn{
     background-color: #666;
     color: #888;
   }
-  .regbtn:hover{
+#bodyWrapper   .regbtn:hover{
     cursor: default;
     background-color: #666;
   }
@@ -301,24 +303,48 @@
   }
 </style>
 </head>
-<body>
+<body onload="startTime()">
   <div id="wrapper">
     <!-- MAIN TOOLBAR -->
     <div id="menu">
-      <img src="UM_l_bwn_horz"></img>
-      <div id="profile">
-        <p> Student Info</p>
-        <a href="" style="color:white;"> Sign Out</a>
-      </div>
+      <img src="logo.png"; alt="Logo";>
+
+          <div id="profile">
+            <table class="profile">
+              <tr> <td>John Student</td><td style="padding-left:30px;">Faculty of Science</td></tr>
+              <tr> <td> 7759384</td><td style="padding-left:30px;"> Computer Science</td></tr>
+              <tr><td></td><td id="logout"><a href="login.html">Sign Out</a></td></tr>
+              </table>
+          </div>
+
+
+          <div class="time">
+              My Registration Time:<br>
+              8:00 AM | August 25th 2017<br>
+              <div id="btn_notify" class="btn" onclick="notify()">Notify Me</div>
+              <div id="notify">
+                <input type="checkbox">Email</input>
+                <input type="text"></input><br>
+                <input type="checkbox">Phone</input>
+                 <input type="text"></input><br>
+                 <input type="checkbox">1 Week Before</input><br>
+                 <input type="checkbox">24 Hours Before</input><br>
+                 <input type="checkbox">1 Hour Before</input><br>
+                 <input type="button" value="Ok"></input>
+              </div>
+          </div>
+          <div class="time">
+              Thusday, Sept 27, 2017<br>
+              <div id="txt"></div>
+          </div>
+
+      <ul>
+          <li  class="active"><a href="home.html">Home</a></li>
+          <li><a href="search.html">Search and Register</a></li>
+          <li style="float:right;width:7%;"><a>Help</a></li>
+      </ul>
+
     </div>
-  <!-- NAVIGATION TOOLBAR -->
-  <div id="nav">
-    <ul>
-      <li> <a target="_blank" href="home.html" >Home</a></li>
-      <li> <a href="search.html" class="active" target="_blank">Search and Register</a></li>
-      <li style="float:right;"> <a target="_blank" href="">Help</a></li>
-    </ul>
-  </div>
   <div id="bodyWrapper">
 
   <button class="btn btn-drafts" data-toggle="modal" data-target="#myModal"></button>

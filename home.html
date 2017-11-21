@@ -1,624 +1,421 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Home Dashboard</title>
 
-    <script>
-        
-        function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('txt').innerHTML = "Server Time: " + h + ":" + m + ":" + s + "\t\t";
-            var t = setTimeout(startTime, 500);
-        }
+<script src="scripts/jquery-3.2.1.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
 
-        function checkTime(i) {
-            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-            return i;
-        }
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="classDetails/details.css">
+<link rel='stylesheet' href='regcalander.css' />
 
-        function notify(){
-          var div = document.getElementById("notify");
-          if(div.style.display=="block")
-            div.style.display="none";
-          else
-              div.style.display="block";
-        }
+<script src='scripts/moment.min.js'></script>
+<script src='scripts/fullcalendar.js'></script>
+<script>
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    // put your options and callbacks here
+    height: 450,
 
-    </script>
+    defaultDate: "1/5/2015",
+    header:
+    {
+      left: 'title',
+      center:false,
+      right:  'prev,next',
+    },
+    titleFormat: '[2017 - 2018]',
+    defaultView: 'agendaWeek',
+    weekends: false,
+    minTime: "07:00:00",
+    maxTime: "21:00:00",
+    allDaySlot: false,
 
-    <link rel="import" href="Bar1.html">
+    events: [
+      {
+        title: 'STAT 1000 A03',
+        start: 'Mon, 5 Jan 2015 10:30:00',
+        end: 'Mon, 5 Jan 2015 11:20:00',
+        color: 'orange',
+        textColor: 'black',
+        url: " ",
+      },
+      {
+        title: 'STAT 1000 A03',
+        start: 'Wed, 7 Jan 2015 10:30:00',
+        end: 'Wed, 7 Jan 2015 11:20:00',
+        color: 'orange',
+        textColor: 'black',
+        url: " ",
+      },
+      {
+        title: 'STAT 1000 A03',
+        start: 'Fri, 9 Jan 2015 10:30:00',
+        end: 'Fri, 9 Jan 2015 11:20:00',
+        color: 'orange',
+        textColor: 'black',
+        url: " ",
+      },
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Home Dashboard</title>
+      {
+        id: 2130,
+        title: 'COMP 2130 A01',
+        start: 'Mon, 5 Jan 2015 12:30:00',
+        end: 'Mon, 5 Jan 2015 13:20:00',
+        color: 'lightgreen',
+        textColor: 'black',
+        url: " ",
+      },
+      {
+        id: 2130,
+        title: 'COMP 2130 A01',
+        start: 'Wed, 7 Jan 2015 12:30:00',
+        end: 'Wed, 7 Jan 2015 13:20:00',
+        color: 'lightgreen',
+        textColor: 'black',
+        url: " ",
+      },
+      {
+        id: 2130,
+        title: 'COMP 2130 A01',
+        start: 'Fri, 9 Jan 2015 12:30:00',
+        end: 'Fri, 9 Jan 2015 13:20:00',
+        color: 'lightgreen',
+        textColor: 'black',
+        url: " ",
+      },
+      {
+        title: 'COMP 2160 A01',
+        start: 'Tues, 6 Jan 2015 9:30:00',
+        end: 'Tues, 6 Jan 2015 10:45:00',
+        url: " ",
+      },
+      {
 
-    <script src="scripts/jquery-3.2.1.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
+        title: 'COMP 2160 A01',
+        start: 'Thurs, 8 Jan 2015 9:30:00',
+        end: 'Thurs, 8 Jan 2015 10:45:00',
+        url: " ",
+      },
+      {
+        title: 'COMP 2160 B08',
+        start: 'Thurs, 8 Jan 2015 12:00:00',
+        end: 'Thurs, 8 Jan 2015 13:00:00',
+        url: " ",
+      },
 
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="classDetails/details.css">
-    <link rel='stylesheet' href='regcalander.css' />
+      //*****************************************WINTER
+      {
+        title: 'COMP 2280 A02',
+        start: 'Tues, 13 Jan 2015 11:30:00',
+        end: 'Tues, 13 Jan 2015 12:45:00',
+        color: 'blue',
+        url: " ",
+      },
+      {
+        title: 'COMP 2280 A02',
+        start: 'Thurs, 15 Jan 2015 11:30:00',
+        end: 'Thurs, 15 Jan 2015 12:45:00',
+        color: 'blue',
+        url: " ",
+      },
+      {
+        title: 'COMP 2280 B06',
+        start: 'Thurs, 15 Jan 2015 13:00:00',
+        end: 'Thurs, 15 Jan 2015 14:00:00',
+        color: 'blue',
+        url: " ",
+      },
 
-    <script src='scripts/moment.min.js'></script>
-    <script src='scripts/fullcalendar.js'></script>
-
-    <script>
-        $(document).ready(function() {
-        $('#calendar').fullCalendar({
-            // put your options and callbacks here
-            height: 450,
-
-            defaultDate: "1/5/2015",
-            header:
-            {
-                left: 'title',
-                center:false,
-                right:  'prev,next',
-            },
-            titleFormat: '[2017 - 2018]',
-            defaultView: 'agendaWeek',
-            weekends: false,
-            minTime: "07:00:00",
-            maxTime: "21:00:00",
-            allDaySlot: false,
-
-
-            events: [
-            {
-                title: 'STAT 1000 A03',
-                start: 'Mon, 5 Jan 2015 10:30:00',
-                end: 'Mon, 5 Jan 2015 11:20:00',
-                color: 'orange',
-                textColor: 'black',
-                url: " ",
-            },
-            {
-                title: 'STAT 1000 A03',
-                start: 'Wed, 7 Jan 2015 10:30:00',
-                end: 'Wed, 7 Jan 2015 11:20:00',
-                color: 'orange',
-                textColor: 'black',
-                url: " ",
-            },
-            {
-                title: 'STAT 1000 A03',
-                start: 'Fri, 9 Jan 2015 10:30:00',
-                end: 'Fri, 9 Jan 2015 11:20:00',
-                color: 'orange',
-                textColor: 'black',
-                url: " ",
-            },
-
-            {
-                id: 2130,
-                title: 'COMP 2130 A01',
-                start: 'Mon, 5 Jan 2015 12:30:00',
-                end: 'Mon, 5 Jan 2015 13:20:00',
-                color: 'lightgreen',
-                textColor: 'black',
-                url: " ",
-            },
-            {
-                id: 2130,
-                title: 'COMP 2130 A01',
-                start: 'Wed, 7 Jan 2015 12:30:00',
-                end: 'Wed, 7 Jan 2015 13:20:00',
-                color: 'lightgreen',
-                textColor: 'black',
-                url: " ",
-            },
-            {
-                id: 2130,
-                title: 'COMP 2130 A01',
-                start: 'Fri, 9 Jan 2015 12:30:00',
-                end: 'Fri, 9 Jan 2015 13:20:00',
-                color: 'lightgreen',
-                textColor: 'black',
-                url: " ",
-            },
-            {
-                title: 'COMP 2160 A01',
-                start: 'Tues, 6 Jan 2015 9:30:00',
-                end: 'Tues, 6 Jan 2015 10:45:00',
-                url: " ",
-            },
-            {
-                title: 'COMP 2160 A01',
-                start: 'Thurs, 8 Jan 2015 9:30:00',
-                end: 'Thurs, 8 Jan 2015 10:45:00',
-                url: " ",
-            },
-            {
-                title: 'COMP 2160 B08',
-                start: 'Thurs, 8 Jan 2015 12:00:00',
-                end: 'Thurs, 8 Jan 2015 13:00:00',
-                url: " ",
-            },
-            //*****************************************WINTER
-            {
-                title: 'COMP 2280 A02',
-                start: 'Tues, 13 Jan 2015 11:30:00',
-                end: 'Tues, 13 Jan 2015 12:45:00',
-                color: 'blue',
-                url: " ",
-            },
-            {
-                title: 'COMP 2280 A02',
-                start: 'Thurs, 15 Jan 2015 11:30:00',
-                end: 'Thurs, 15 Jan 2015 12:45:00',
-                color: 'blue',
-                url: " ",
-            },
-            {
-                title: 'COMP 2280 B06',
-                start: 'Thurs, 15 Jan 2015 13:00:00',
-                end: 'Thurs, 15 Jan 2015 14:00:00',
-                color: 'blue',
-                url: " ",
-            },
-            {
-                title: 'FAAH 1020 A01',
-                start: 'Mon, 12 Jan 2015 10:00:00',
-                end: 'Mon, 12 Jan 2015 10:50:00',
-                color: 'red',
-                url: " ",
-            },
-            {
-                title: 'FAAH 1020 A01',
-                start: 'Wed, 14 Jan 2015 10:00:00',
-                end: 'Wed, 14 Jan 2015 10:50:00',
-                color: 'red',
-                url: " ",
-            },
-            {
-                title: 'FAAH 1020 A01',
-                start: 'Fri, 16 Jan 2015 10:00:00',
-                end: 'Fri, 16 Jan 2015 10:50:00',
-                color: 'red',
-                url: " ",
-            },
-            ],
-
-            eventClick: function(event) {
-                if(event.id == 2130)
-                    $("#classModal").modal("show");
-                else
-                    $("#classModal2").modal("show");
-                return false;
-            },
-
-            viewRender: function(currentView){
-                var minDate = moment('Mon, 5 Jan 2015 10:30:00'),
-                maxDate = moment('Thurs, 15 Jan 2015 24:30:00');
-                // Past
-                if (minDate >= currentView.start && minDate <= currentView.end) {
-                    $(".fc-prev-button").prop('disabled', true);
-                    $(".fc-prev-button").addClass('fc-state-disabled');
-                }
-                else {
-                    $(".fc-prev-button").removeClass('fc-state-disabled');
-                    $(".fc-prev-button").prop('disabled', false);
-                }
-                // Future
-                if (maxDate >= currentView.start && maxDate <= currentView.end) {
-                    $(".fc-next-button").prop('disabled', true);
-                    $(".fc-next-button").addClass('fc-state-disabled');
-                } else {
-                    $(".fc-next-button").removeClass('fc-state-disabled');
-                    $(".fc-next-button").prop('disabled', false);
-                }
-                $(".fc-day-header.fc-mon").html("Mon");
-                $(".fc-day-header.fc-tue").html("Tues");
-                $(".fc-day-header.fc-wed").html("Wed");
-                $(".fc-day-header.fc-thu").html("Thurs");
-                $(".fc-day-header.fc-fri").html("Fri");
-            }
-        });
-    });
-    </script>
-
-    <script>
-        function toggleView(){
-            var list = document.getElementById('list');
-            var cv = document.getElementById('calendarView');
-
-            if($(list).css('display') !== 'none'){
-                //list.style.display= 'none';
-                $("#list").slideUp("slow");
-                $("#calendar").css({"visibility": "visible"});
-                $("#calendarView").slideDown("slow");
-                cv.style.height= '50%';
-            }
-            else{
-                //list.style.display= 'block';
-                $("#list").slideDown("slow");
-                //  $("#calendar").css({"visibility": "hidden"});
-                //cv.style.height= '0px';
-                $("#calendarView").slideUp("slow");
-            }
-        }
-    </script>
-
-    <style>
-
-    .unselectable {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+      {
+        title: 'FAAH 1020 A01',
+        start: 'Mon, 12 Jan 2015 10:00:00',
+        end: 'Mon, 12 Jan 2015 10:50:00',
+        color: 'red',
+        url: " ",
+      },
+      {
+        title: 'FAAH 1020 A01',
+        start: 'Wed, 14 Jan 2015 10:00:00',
+        end: 'Wed, 14 Jan 2015 10:50:00',
+        color: 'red',
+        url: " ",
+      },
+      {
+        title: 'FAAH 1020 A01',
+        start: 'Fri, 16 Jan 2015 10:00:00',
+        end: 'Fri, 16 Jan 2015 10:50:00',
+        color: 'red',
+        url: " ",
+      },
+    ],
+    eventClick: function(event) {
+        if(event.id == 2130)
+          $("#classModal").modal("show");
+       else
+          $("#classModal2").modal("show");
+        return false;
+    },
+    viewRender: function(currentView){
+      var minDate = moment('Mon, 5 Jan 2015 10:30:00'),
+      maxDate = moment('Thurs, 15 Jan 2015 24:30:00');
+      // Past
+      if (minDate >= currentView.start && minDate <= currentView.end) {
+        $(".fc-prev-button").prop('disabled', true);
+        $(".fc-prev-button").addClass('fc-state-disabled');
+      }
+      else {
+        $(".fc-prev-button").removeClass('fc-state-disabled');
+        $(".fc-prev-button").prop('disabled', false);
+      }
+      // Future
+      if (maxDate >= currentView.start && maxDate <= currentView.end) {
+        $(".fc-next-button").prop('disabled', true);
+        $(".fc-next-button").addClass('fc-state-disabled');
+      } else {
+        $(".fc-next-button").removeClass('fc-state-disabled');
+        $(".fc-next-button").prop('disabled', false);
+      }
+      $(".fc-day-header.fc-mon").html("Mon");
+      $(".fc-day-header.fc-tue").html("Tues");
+      $(".fc-day-header.fc-wed").html("Wed");
+      $(".fc-day-header.fc-thu").html("Thurs");
+      $(".fc-day-header.fc-fri").html("Fri");
     }
-    /*Unselectable code from https://stackoverflow.com/questions/2310734/how-to-make-html-text-unselectable*/
+  });
+});
+</script>
 
-    #wrapper{
-        padding-bottom: 30px;
-        height: 100%;
+<script>
+  function toggleView(){
+    var list = document.getElementById('list');
+    var cv = document.getElementById('calendarView');
+
+    if($(list).css('display') !== 'none'){
+      //list.style.display= 'none';
+      $("#list").slideUp("slow");
+      $("#calendar").css({"visibility": "visible"});
+      $("#calendarView").slideDown("slow");
+      cv.style.height= '50%';
     }
+    else{
+      //list.style.display= 'block';
+      $("#list").slideDown("slow");
 
-    #profile{
-        background-color: #b35900 ;
-        float:right;
-        color:white;
-        padding-right: 2%;
-        font-size: 100% ;
+    //  $("#calendar").css({"visibility": "hidden"});
+      //cv.style.height= '0px';
+      $("#calendarView").slideUp("slow");
     }
-
-    #btn_notify{
-        background-color: #bf6731;
-        padding: 5px;
-        margin-bottom: 2% ;
-        text-align: center;
-        width: 50%;
-        border-radius: 25px;
-        box-shadow: 0px 0px 100px 10px white ;
-    }
-
-    #notify{
-        padding: 5%;
-        background-color: #aa4f17;
-        position: absolute;
-        margin-right: 20% ;
-        display: none;
-        border-radius: 25px;
-    }
-
-    .imgcontainer {
-        text-align: left ;
-        /*margin-top: 2%;*/
-        margin-bottom: 2%;
-        background-color: #b35900 ;
-        padding-top: 1% ;
-        padding-left: 2% ;
-        padding-right: 2% ;
-        padding-bottom: 2% ;
-        border-radius: 25px;
-        box-shadow: 0px 0px 10px 5px grey ;
-    }
-
-    .time {
-        position: relative;
-        float: right;
-        text-align: left ;
-        font-size: 120% ;
-        margin-right: 8% ;
-    }
-
-    img {
-        /*box-shadow: 0px 0px 10px 5px #c96502 ;*/
-        float: left;
-        margin-bottom: 2%;
-    }
-
-    ul {
-        list-style-type: none;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #964B00;
-        border-radius: 25px;
-        box-shadow: 0px 0px 5px 5px #7c3e00 ;
-    }
-
-    li {
-        float: left;
-        box-shadow: 0px 0px 5px 5px #7c3e00 ;
-    }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover {
-        background-color: #D4AF37;
-    }
-
-    /*List Code found from https://www.w3schools.com/css/css_navbar.asp*/
-
-    .cdr {
-        margin-top: 0% ;
-    }
-
-    #contentWrapper th{
-        background-color: lightblue;
-    }
-
-    #contentWrapper table{
-        background-color: #b35900 ;
-    }
-
-    body{
-        background-color: #964B00;
-    }
-
-    #contentWrapper{
-        background-color: white;
-        width: 70%;
-        max-width: 960px;
-        height: 100%;
-        min-height: 100%;
-        margin: auto;
-        margin-top: 2%;
-        text-align: center;
-      	box-shadow: 0px 0px 15px 1px black ;
-    }
-
-    #tables{
-        background-color: #dddddd;
-    }
-
-    #calendarView{
-        overflow: hidden;
-    }
-
-    #planning{
-        background-color: #aaaaaa;
-    }
-
-    #list{
-        display:none;
-        position: relative;
-        overflow: hidden;
-        background-color: white;
-    }
-
-    #contentWrapper .h{
-        text
-    }
-
-    #contentWrapper .lab{
-        padding-left: 10%;
-    }
-
-    #innerLists ul{
-        list-style: none;
-        text-align: left;
-        float: left;
-        padding: 0;
-        margin: 0 30px;
-    }
-
-    #innerLists h2{
-        margin-top: 1%;
-        margin-bottom: 0;
-    }
-
-    #contentWrapper h1{
-        margin: 0;
-    }
-
-    #innerLists {
-        display: inline-block;
-        margin-top: 0;
-    }
-
-    #add{
-        display: inline-block;
-        width: 100%;
-        margin-top: 2%;
-        background-color: lightblue;
-        padding: 5px;
-    }
-
-    #contentWrapper h2{
-        padding: 0;
-        margin: 0;
-    }
-
-    #contentWrapper .btnToggle{
-        width: 100%;
-    }
-
-    #contentWrapper .btn-drafts{
-        margin: 2%;
-    }
-
-    #contentWrapper li{
-        color:blue;
-    }
-
-    #contentWrapper li.h{
-        color:black;
-    }
-
-    #confirm{
-        background-color: white;
-        padding: 2%;
-    }
-
-    </style>
-
+  }
+  </script>
+<style>
+#contentWrapper th{
+  background-color: lightblue;
+}
+#contentWrapper table{
+  background-color: white;
+}
+body{
+  background-color: #003471;
+}
+#contentWrapper{
+  background-color: white;
+  width: 70%;
+  max-width: 960px;
+  height: 100%;
+  min-height: 100%;
+  margin: auto;
+    margin-top: 2%;
+  text-align: center;
+  	box-shadow: 0px 0px 15px 1px black ;
+}
+#tables{
+  background-color: #dddddd;
+}
+#calendarView{
+overflow: hidden;
+}
+#planning{
+  background-color: #aaaaaa;
+}
+#list{
+  display:none;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+}
+#contentWrapper .h{
+    text
+}
+#contentWrapper .lab{
+  padding-left: 10%;
+}
+#innerLists ul{
+  list-style: none;
+  text-align: left;
+  float: left;
+  padding: 0;
+  margin: 0 30px;
+}
+#innerLists h2{
+  margin-top: 1%;
+  margin-bottom: 0;
+}
+#contentWrapper h1{
+  margin: 0;
+}
+#innerLists {
+  display: inline-block;
+  margin-top: 0;
+}
+#add{
+  display: inline-block;
+  width: 100%;
+  margin-top: 2%;
+  background-color: lightblue;
+  padding: 5px;
+}
+#contentWrapper h2{
+    padding: 0;
+    margin: 0;
+}
+#contentWrapper .btnToggle{
+  width: 100%;
+}
+#contentWrapper .btn-drafts{
+  margin: 2%;
+}
+#contentWrapper li{
+  color:blue;
+}
+#contentWrapper li.h{
+  color:black;
+}
+#confirm{
+  background-color: white;
+  padding: 2%;
+}
+</style>
 </head>
+<body>
+  <!-- TOP TOOLBAR -->
 
-<body onload="startTime()">
-    <div class="imgcontainer">
-        <!-- <img src="UM_l_bwn_horz.png" hspace="2%"; alt="Logo"; height="10%" width="20%"> -->
-        <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%">
+  <div id="menu-placeholder"></div>
 
-        <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%"> -->
-        <div id="profile">
-            <table class="profile">
-                <!-- <tr> <td>Signed in: </td></tr> -->
-                <tr> <td></td><td>John Student</td> </tr>
-                <tr> <td></td><td> 7759384</td> </tr>
-            <!--  <tr> <td></td><td>Faculty of Science</td> </tr>
-                <tr> <td>Major: </td><td>Computer Science</td></tr> -->
-                <tr><td></td><td><a href="Login_.html">Sign Out</a></td></tr>
-            </table>
-        </div>
-        <div class="time">
-            My Registration Time:<br>
-            8:00 AM | August 25th 2017<br>
-            <div class="unselectable
-            " id="btn_notify" class="btn" onclick="notify()">Notify Me</div>
-            <div id="notify">
-                <input type="checkbox">Email</input>
-                <input type="text"></input><br>
-                <input type="checkbox">Phone</input>
-                <input type="text"></input><br>
-                <input type="checkbox">1 Week Before</input><br>
-                <input type="checkbox">24 Hours Before</input><br>
-                <input type="checkbox">1 Hour Before</input><br>
-            </div>
-        </div>
-        <div class="time">
-            Thusday, Sept 27, 2017<br>
-            <div id="txt"></div>
-        </div>
-        <!-- <div class="time"> -->
-            <!-- <p style="text-align: right"> -->
-                <!-- Server Time -->
-            <!-- </p> -->
+  <div id="contentWrapper">
+<!-- COURSE TABLES SECTION -->
+<div id="tables">
+<h1> View / Edit My Registered Courses </h1>
+<span> Click a section for more details. </span><br><br>
+ <button class="btnToggle"onclick="toggleView()">Toggle list / timetable view</button>
+<div id="list">
+  <h2> 2017 - 2018 </h2>
+  <div id="innerLists">
+  <ul id="listFall">
+    <li class="h"><h3> Fall </h3> </li>
+    <li id="2130"> <a href="" data-toggle="modal" data-target="#classModal">COMP 2130 A01</a> </li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">COMP 2160 A01 </a></li>
+    <li class="lab"> <a href="" data-toggle="modal" data-target="#classModal2">- COMP 2160 B01</a></a></li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">STAT 1000 A03</li>
+  </ul>
+  <ul id="listWinter">
+    <li class="h"><h3> Winter </h3> </li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">COMP 2280 A02</a></li>
+    <li class="lab"> <a href="" data-toggle="modal" data-target="#classModal2">- COMP 2280 B06</a></li>
+    <li> <a href="" data-toggle="modal" data-target="#classModal2">FAAH 1020 A01</a> </li>
+  </ul>
+</div>
+<div id="add">
+  Register by course CRN:
+  <input maxlength="5" size="5"></input>
+  <input maxlength="5" size="5"></input>
+  <input maxlength="5" size="5"></input>
+  <input maxlength="5" size="5"></input>
+  <input maxlength="5" size="5"></input>
+  <input type="button" value="Submit"></input>
+</div>
+</div>
+<div id="calendarView">
+<div id='calendar'></div>
+<button style="float:right;"> Print </button>
+</div>
 
-        <ul>
-            <li><a class="active" href="">Home</a></li>
-            <li><a href="">Search and Register</a></li>
-        </ul>
+<!-- 2130 Deets Modal -->
+<div class="modal fade" id="classModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:40%;height:70%;">
+    <div class="modal-content" style="width:100%;height:100%;">
+      <div class="modal-body" style="width:100%;height:100%;">
+        <div id="modal">
+          <script src="classDetails/dropCourses.js"></script>
+          <h1>COMP 2130: A01</h1>
+          <span>Discrete Math for Computer Science</span><br>
+          <span>CRN: 101567</span><br>
+          <table>
+            <tr>
+              <th>Instructor:</th>
+              <td>Dr. John Smith</td>
+            </tr>
+            <tr>
+              <th>Capacity:</th>
+              <td>60 / 60</td>
+            </tr>
+            <tr>
+              <th>Waitlist:</th>
+              <td>23 / 100</td>
+            </tr>
+
+            <tr>
+              <th>MWF</th>
+              <td>12:30 AM - 1:10 PM</td>
+              <td>105 Armes</td>
+            </tr>
+              <tr>
+                <th>CRN: </th>
+                <td>51874</td>
+              </tr>
+              <tr>
+                <th>3 Credits</th>
+              </tr>
+              <tr>
+                <th>Attributes:</th>
+                <td>Science Requirement</td>
+              </tr>
+          </table>
+          <br>
+          <div id="confirm">
+            <span> Are you sure you want to drop this course? </span>
+            <br>
+            Enter Password:
+            <input id="pw" type="password" ="droppedEnt();"></input>
+            <div class="modalbtn" onclick="dropped();">Confrim</div>
+          </div>
+          <div class="modalbtn" onclick="drop();"id="drop">Drop Course</div>
+        </div>
+      </div>
     </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
-    <div id="menu-placeholder"></div>
-
-    <div id="contentWrapper">
-    <!-- COURSE TABLES SECTION -->
-    <div id="tables">
-    <h1> View / Edit My Registered Courses </h1>
-    <span> Click a section for more details. </span><br><br>
-    <button class="btnToggle"onclick="toggleView()">Toggle list / timetable view</button>
-    <div id="list">
-        <h2> 2017 - 2018 </h2>
-        <div id="innerLists">
-            <ul id="listFall">
-                <li class="h"><h3> Fall </h3> </li>
-                <li id="2130"> <a href="" data-toggle="modal" data-target="#classModal">COMP 2130 A01</a> </li>
-                <li> <a href="" data-toggle="modal" data-target="#classModal2">COMP 2160 A01 </a></li>
-                <li class="lab"> <a href="" data-toggle="modal" data-target="#classModal2">- COMP 2160 B01</a></a></li>
-                <li> <a href="" data-toggle="modal" data-target="#classModal2">STAT 1000 A03</li>
-            </ul>
-            <ul id="listWinter">
-                <li class="h"><h3> Winter </h3> </li>
-                <li> <a href="" data-toggle="modal" data-target="#classModal2">COMP 2280 A02</a></li>
-                <li class="lab"> <a href="" data-toggle="modal" data-target="#classModal2">- COMP 2280 B06</a></li>
-                <li> <a href="" data-toggle="modal" data-target="#classModal2">FAAH 1020 A01</a> </li>
-            </ul>
-        </div>
-
-        <div id="add">
-            Register by course CRN:
-            <input maxlength="5" size="5"></input>
-            <input maxlength="5" size="5"></input>
-            <input maxlength="5" size="5"></input>
-            <input maxlength="5" size="5"></input>
-            <input maxlength="5" size="5"></input>
-            <input type="button" value="Submit"></input>
-        </div>
+<!-- 2160 Deets Modal -->
+<div class="modal fade" id="classModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:40%;height:60%;">
+    <div class="modal-content" style="width:100%;height:100%;">
+      <div class="modal-body" style="width:100%;height:100%;">
+          <iframe src="classDetails/others.html" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe>
+      </div>
     </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
-    <div id="calendarView">
-        <div id='calendar'></div>
-        <button style="float:right;"> Print </button>
-    </div>
-
-    <!-- 2130 Deets Modal -->
-    <div class="modal fade" id="classModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width:40%;height:70%;">
-            <div class="modal-content" style="width:100%;height:100%;">
-                <div class="modal-body" style="width:100%;height:100%;">
-                    <div id="modal">
-                        <script src="classDetails/dropCourses.js"></script>
-                        <h1>COMP 2130: A01</h1>
-                        <span>Discrete Math for Computer Science</span><br>
-                        <span>CRN: 101567</span><br>
-                        <table>
-                            <tr>
-                                <th>Instructor:</th>
-                                <td>Dr. John Smith</td>
-                            </tr>
-                            <tr>
-                                <th>Capacity:</th>
-                                <td>60 / 60</td>
-                            </tr>
-                            <tr>
-                                <th>Waitlist:</th>
-                                <td>23 / 100</td>
-                            </tr>
-
-                            <tr>
-                                <th>MWF</th>
-                                <td>12:30 AM - 1:10 PM</td>
-                                <td>105 Armes</td>
-                            </tr>
-                            <tr>
-                                <th>CRN: </th>
-                                <td>51874</td>
-                            </tr>
-                            <tr>
-                                <th>3 Credits</th>
-                            </tr>
-                            <tr>
-                                <th>Attributes:</th>
-                                <td>Science Requirement</td>
-                            </tr>
-                        </table>
-                        <br>
-                        <div id="confirm">
-                            <span> Are you sure you want to drop this course? </span>
-                            <br>
-                            Enter Password:
-                            <input id="pw" type="password" ="droppedEnt();"></input>
-                            <div class="modalbtn" onclick="dropped();">Confrim</div>
-                        </div>
-                        <div class="modalbtn" onclick="drop();"id="drop">Drop Course</div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-    
-    <!-- 2160 Deets Modal -->
-    <div class="modal fade" id="classModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width:40%;height:60%;">
-            <div class="modal-content" style="width:100%;height:100%;">
-                <div class="modal-body" style="width:100%;height:100%;">
-                    <iframe src="classDetails/others.html" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
 </div>
 
 

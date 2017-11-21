@@ -7,13 +7,13 @@
 <script src='scripts/jquery.min.js'></script>
 <script src='scripts/moment.min.js'></script>
 <script src='scripts/fullcalendar.js'></script>
-<link rel='stylesheet' href='fullcalendar.css' />
+<link rel='stylesheet' href='css/fullcalendar.css' />
 
 <script src="scripts/jquery-3.2.1.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="nav.css">
-<link rel="stylesheet" type="text/css" href="menubar.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/nav.css">
+<link rel="stylesheet" type="text/css" href="css/menubar.css">
 <script>
 function startTime() {
     var today = new Date();
@@ -74,7 +74,7 @@ function startTime() {
     right:0;
     margin-right: 1%;
     margin-top: 2%;
-    background-image: url(draftButton.png);
+    background-image: url('images/draftButton.png');
     background-repeat: no-repeat;
     width: 252px;
     height: 224px;
@@ -117,7 +117,7 @@ function startTime() {
     overflow-y: auto;
     height: 130%;
     min-height: 100%;
-    background-image: url("search-help.png");
+    background-image: url("images/search-help.png");
     background-repeat: no-repeat;
     background-position:center 50px;
     border-radius: 30px 30px 0px 0px;
@@ -307,7 +307,7 @@ function startTime() {
   <div id="wrapper">
     <!-- MAIN TOOLBAR -->
     <div id="menu">
-      <img src="logo.png"; alt="Logo";>
+      <img src="images/logo.png"; alt="Logo";>
 
           <div id="profile">
             <table class="profile">
@@ -339,8 +339,8 @@ function startTime() {
           </div>
 
       <ul>
-          <li  class="active"><a href="home.html">Home</a></li>
-          <li><a href="search.html">Search and Register</a></li>
+          <li><a href="home.html">Home</a></li>
+          <li class="active"><a href="search.html">Search and Register</a></li>
           <li style="float:right;width:7%;"><a>Help</a></li>
       </ul>
 
@@ -358,7 +358,7 @@ function startTime() {
           <input id="searchBar" type="text"
           placeholder="Search by course code, name, or instructor."
           background>
-         <input class="searchIcon" type="image" src="searchicon.png" onclick="searchEngine()"></input>
+         <input class="searchIcon" type="image" src="images/searchicon.png" onclick="searchEngine()"></input>
         </form>
       </div>
   <!-- Search by Subject -->

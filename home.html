@@ -304,10 +304,10 @@ overflow: hidden;
     padding: 0;
     margin: 0;
 }
-#contentWrapper .btnToggle{
+ .btnToggle{
   width: 100%;
 }
-#contentWrapper .btn-drafts{
+ .btn-drafts{
   margin: 2%;
 }
 #contentWrapper li{
@@ -317,8 +317,19 @@ overflow: hidden;
   color:black;
 }
 #confirm{
+  padding: 5px;
   background-color: white;
-  padding: 2%;
+  display: none;
+  text-align: left;
+  background-color: lightblue;
+  width: 50%;
+}
+.modalbtn{
+  color: white;
+  padding: 5px;
+  background-color: #002461;
+  width: 50%;
+  text-align: center;
 }
 </style>
 </head>
@@ -446,10 +457,11 @@ overflow: hidden;
           <br>
           <div id="confirm">
             <span> Are you sure you want to drop this course? </span>
-            <br>
+            <br><br>
             Enter Password:
             <input id="pw" type="password" ="droppedEnt();"></input>
-            <div class="modalbtn" onclick="dropped();">Confrim</div>
+            <br><br>
+            <div class="modalbtn" onclick="dropped();" style="margin: 0 auto;">Confrim</div>
           </div>
           <div class="modalbtn" onclick="drop();"id="drop">Drop Course</div>
         </div>

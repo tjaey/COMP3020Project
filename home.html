@@ -7,13 +7,13 @@
 
 <script src="scripts/jquery-3.2.1.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="nav.css">
 <link rel="stylesheet" type="text/css" href="classDetails/details.css">
+<link rel='stylesheet' href='regcalander.css' />
 
 <script src='scripts/moment.min.js'></script>
 <script src='scripts/fullcalendar.js'></script>
-<link rel='stylesheet' href='regcalander.css' />
 <script>
 $(document).ready(function() {
   $('#calendar').fullCalendar({
@@ -195,34 +195,42 @@ $(document).ready(function() {
     var cv = document.getElementById('calendarView');
 
     if($(list).css('display') !== 'none'){
-      list.style.display= 'none';
+      //list.style.display= 'none';
+      $("#list").slideUp("slow");
       $("#calendar").css({"visibility": "visible"});
+      $("#calendarView").slideDown("slow");
       cv.style.height= '50%';
     }
     else{
-      list.style.display= 'block';
-      $("#calendar").css({"visibility": "hidden"});
-      cv.style.height= '0px';
+      //list.style.display= 'block';
+      $("#list").slideDown("slow");
+
+    //  $("#calendar").css({"visibility": "hidden"});
+      //cv.style.height= '0px';
+      $("#calendarView").slideUp("slow");
     }
   }
-</script>
+  </script>
 <style>
-th{
+#contentWrapper th{
   background-color: lightblue;
 }
-table{
+#contentWrapper table{
   background-color: white;
 }
 body{
-  background-color: blue;
+  background-color: #964B00;
 }
 #contentWrapper{
   background-color: white;
-  width: 60%;
+  width: 70%;
+  max-width: 960px;
   height: 100%;
   min-height: 100%;
   margin: auto;
+    margin-top: 2%;
   text-align: center;
+  	box-shadow: 0px 0px 15px 1px black ;
 }
 #tables{
   background-color: #dddddd;
@@ -235,51 +243,55 @@ overflow: hidden;
 }
 #list{
   display:none;
+  position: relative;
   overflow: hidden;
   background-color: white;
 }
-.h{
+#contentWrapper .h{
     text
 }
-.lab{
+#contentWrapper .lab{
   padding-left: 10%;
 }
-#list ul{
-  display: inline-block;
-  *display: inline;
+#innerLists ul{
   list-style: none;
   text-align: left;
-  margin-top:0;
-  float:left;
+  float: left;
+  padding: 0;
+  margin: 0 30px;
 }
-#list h2{
+#innerLists h2{
   margin-top: 1%;
   margin-bottom: 0;
 }
-#innerLists{
-  width: 50%;
-  margin: 0 auto;
+#contentWrapper h1{
+  margin: 0;
+}
+#innerLists {
+  display: inline-block;
+  margin-top: 0;
 }
 #add{
-  position: relative;
-  margin-top: 20%;
+  display: inline-block;
+  width: 100%;
+  margin-top: 2%;
   background-color: lightblue;
   padding: 5px;
 }
-h1{
+#contentWrapper h2{
     padding: 0;
     margin: 0;
 }
-.btnToggle{
+#contentWrapper .btnToggle{
   width: 100%;
 }
-.btn-drafts{
+#contentWrapper .btn-drafts{
   margin: 2%;
 }
-li{
+#contentWrapper li{
   color:blue;
 }
-li.h{
+#contentWrapper li.h{
   color:black;
 }
 </style>
@@ -287,13 +299,7 @@ li.h{
 <body>
   <!-- TOP TOOLBAR -->
 
-  <div id="nav">
-    <ul>
-      <li> <a target="_blank" href="" class="active">Home</a></li>
-      <li> <a href="search.html" target="search.html">Search and Register</a></li>
-      <li style="float:right;"> <a target="_blank" href="">Help</a></li>
-    </ul>
-  </div>
+  <div id="menu-placeholder"></div>
 
   <div id="contentWrapper">
 <!-- COURSE TABLES SECTION -->
@@ -318,7 +324,6 @@ li.h{
     <li> <a href="" data-toggle="modal" data-target="#classModal2">FAAH 1020 A01</a> </li>
   </ul>
 </div>
-</hr>
 <div id="add">
   Register by course CRN:
   <input maxlength="5" size="5"></input>
@@ -369,7 +374,7 @@ li.h{
             <span> Are you sure you want to drop this course? </span>
             <br>
             Enter Password:
-            <input id="pw" type="password"></input>
+            <input id="pw" type="password" ="droppedEnt();"></input>
             <div class="modalbtn" onclick="dropped();">Confrim</div>
           </div>
           <div class="modalbtn" onclick="drop();"id="drop">Drop Course</div>
@@ -399,7 +404,7 @@ li.h{
 </div>
 
 
-<div id="split" style="background-color:blue;height:20px;"></div>
+<div id="split" style="background-color:white;height:0px;"></div>
 <!-- "PLANNING" SECTION -->
 <div id="planning">
   <h1>Timetable Planning</h1>
@@ -419,9 +424,16 @@ li.h{
   <!-- /.modal -->
 
 </div>
-<div id="bottomPad" style="background-color:blue;height:40px;"></div>
+<div id="bottomPad" style="background-color:white;height:0px;"></div>
 </div>
 <script>
+document.getElementById("pw")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        dropped();
+    }
+});
 function dropped(){
       $('#classModal').modal('hide');
       $('#2130').hide();

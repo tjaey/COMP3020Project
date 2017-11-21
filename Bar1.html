@@ -52,6 +52,7 @@
       padding: 5%;
       background-color: #003471;
       position: absolute;
+      width: 220px;
       display: none;
       color: white;
       margin-left: 60% ;
@@ -97,14 +98,18 @@
 
     #menu li, a {
         display: block;
-        color: white;
         text-align: center;
         padding: 6px 8px;
         text-decoration: none;
+        color: white;
     }
 
     #menu li:hover, .active {
-        background-color: #63a5f2;
+        background-color: lightblue;
+        color: black;
+    }
+    #menu li:hover, .active a {
+        color: black;
     }
 
     #menu .cdr {
@@ -153,6 +158,7 @@
                <input type="checkbox">1 Week Before</input><br>
                <input type="checkbox">24 Hours Before</input><br>
                <input type="checkbox">1 Hour Before</input><br>
+               <input type="button" value="Ok"></input>
             </div>
         </div>
         <div class="time">

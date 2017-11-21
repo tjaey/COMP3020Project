@@ -2,146 +2,166 @@
 <html>
 <head>
     <script>
-    function startTime() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('txt').innerHTML = "Server Time: " + h + ":" + m + ":" + s + "\t\t";
-        var t = setTimeout(startTime, 500);
-    }
-    function checkTime(i) {
-        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-        return i;
-    }
-    function notify(){
-      var div = document.getElementById("notify");
-      if(div.style.display=="block")
-        div.style.display="none";
-      else
-          div.style.display="block";
-    }
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = "Server Time: " + h + ":" + m + ":" + s + "\t\t";
+            var t = setTimeout(startTime, 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+
+        function notify(){
+          var div = document.getElementById("notify");
+          if(div.style.display=="block")
+            div.style.display="none";
+          else
+              div.style.display="block";
+        }
+
     </script>
 
-<style>
-	#wrapper{
-    padding-bottom: 30px;
-    height: 100%;
-    }
+    <style>
 
-    #profile{
-      float:right;
-      color:white;
-      padding-right: 2%;
-      font-size: 100% ;
-    }
-    #btn_notify{
-      background-color: yellow;
-      padding: 5px;
-      text-align: center;
-      width: 50%;
-    }
-    #notify{
-      padding: 5%;
-      background-color: gray;
-      position: absolute;
-      display: none;
-    }
-    .imgcontainer {
-        text-align: left ;
-        /*margin-top: 2%;*/
-        margin-bottom: 2%;
-        background-color: #b35900 ;
-        padding-top: 1% ;
-        padding-left: 2% ;
-        padding-right: 2% ;
-        padding-bottom: 2% ;
-        box-shadow: 0px 0px 10px 5px grey ;
-    }
+        .unselectable {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-    .time {
-        position: relative;
-        float: right;
-        text-align: left ;
-        font-size: 120% ;
-        margin-right: 8% ;
+        #wrapper{
+            padding-bottom: 30px;
+            height: 100%;
+        }
 
-    }
-    img {
-        /*box-shadow: 0px 0px 10px 5px #c96502 ;*/
-        float: left;
-        margin-bottom: 2%;
-    }
+        #profile{
+            float:right;
+            color:white;
+            padding-right: 2%;
+            font-size: 100% ;
+        }
 
-    ul {
-        list-style-type: none;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #964B00;
-        box-shadow: 0px 0px 5px 5px #7c3e00 ;
-    }
+        #btn_notify{
+            background-color: #bf6731;
+            padding: 5px;
+            margin-bottom: 2% ;
+            text-align: center;
+            width: 50%;
+            border-radius: 25px;
+            box-shadow: 0px 0px 100px 10px white ;
+        }
 
-    li {
-        float: left;
-        box-shadow: 0px 0px 5px 5px #7c3e00 ;
-    }
+        #notify{
+            padding: 5%;
+            background-color: #aa4f17;
+            position: absolute;
+            margin-right: 20% ;
+            display: none;
+            border-radius: 25px;
+        }
 
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
+        .imgcontainer {
+            text-align: left ;
+            /*margin-top: 2%;*/
+            margin-bottom: 2%;
+            background-color: #b35900 ;
+            padding-top: 1% ;
+            padding-left: 2% ;
+            padding-right: 2% ;
+            padding-bottom: 2% ;
+            border-radius: 25px;
+            box-shadow: 0px 0px 10px 5px grey ;
+        }
 
-    }
+        .time {
+            position: relative;
+            float: right;
+            text-align: left ;
+            font-size: 120% ;
+            margin-right: 8% ;
+        }
 
-    li a:hover {
-        background-color: #D4AF37;
-    }
+        img {
+            /*box-shadow: 0px 0px 10px 5px #c96502 ;*/
+            float: left;
+            margin-bottom: 2%;
+        }
 
-    .cdr {
-        margin-top: 0% ;
-    }
+        ul {
+            list-style-type: none;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #964B00;
+            border-radius: 25px;
+            box-shadow: 0px 0px 5px 5px #7c3e00 ;
+        }
 
+        li {
+            float: left;
+            box-shadow: 0px 0px 5px 5px #7c3e00 ;
+        }
 
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
 
-</style>
+        li a:hover {
+            background-color: #D4AF37;
+        }
+
+        .cdr {
+            margin-top: 0% ;
+        }
+
+    </style>
+
 </head>
-<!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; height="10%" width="20%"> -->
 <body onload="startTime()">
-	<div class="imgcontainer">
+    <div class="imgcontainer">
     <!-- <img src="UM_l_bwn_horz.png" hspace="2%"; alt="Logo"; height="10%" width="20%"> -->
     <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%">
 
         <!-- <img src="UM_l_bwn_horz.png"; alt="Logo"; width="20%"> -->
         <div id="profile">
             <table class="profile">
-              <!-- <tr> <td>Signed in: </td></tr> -->
-              <tr> <td></td><td>John Student</td> </tr>
-              <tr> <td></td><td> 7759384</td> </tr>
+                <!-- <tr> <td>Signed in: </td></tr> -->
+                <tr> <td></td><td>John Student</td> </tr>
+                <tr> <td></td><td> 7759384</td> </tr>
             <!--  <tr> <td></td><td>Faculty of Science</td> </tr>
-              <tr> <td>Major: </td><td>Computer Science</td></tr> -->
-              <tr><td></td><td><a href="Login_.html">Sign Out</a></td></tr>
+                <tr> <td>Major: </td><td>Computer Science</td></tr> -->
+                <tr><td></td><td><a href="Login_.html">Sign Out</a></td></tr>
             </table>
         </div>
-
-
         <div class="time">
             My Registration Time:<br>
             8:00 AM | August 25th 2017<br>
-            <div id="btn_notify" class="btn" onclick="notify()">Notify Me</div>
+            <div class="unselectable
+            " id="btn_notify" class="btn" onclick="notify()">Notify Me</div>
             <div id="notify">
-              <input type="checkbox">Email</input>
-              <input type="text"></input><br>
-              <input type="checkbox">Phone</input>
-               <input type="text"></input><br>
-               <input type="checkbox">1 Week Before</input><br>
-               <input type="checkbox">24 Hours Before</input><br>
-               <input type="checkbox">1 Hour Before</input><br>
+                <input type="checkbox">Email</input>
+                <input type="text"></input><br>
+                <input type="checkbox">Phone</input>
+                <input type="text"></input><br>
+                <input type="checkbox">1 Week Before</input><br>
+                <input type="checkbox">24 Hours Before</input><br>
+                <input type="checkbox">1 Hour Before</input><br>
             </div>
         </div>
         <div class="time">
@@ -153,10 +173,10 @@
                 <!-- Server Time -->
             <!-- </p> -->
 
-    <ul>
-        <li><a class="active" href="">Home</a></li>
-        <li><a href="">Search and Register</a></li>
-    </ul>
+        <ul>
+            <li><a class="active" href="">Home</a></li>
+            <li><a href="">Search and Register</a></li>
+        </ul>
 
 </body>
 </html>

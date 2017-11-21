@@ -45,18 +45,6 @@
     padding-bottom: 30px;
     height: 100%;
   }
-  div.section{
-    background-color: lightblue;
-    padding: 3px;
-    padding-left: 30px;
-    padding-right: 10px;
-    margin: 2%;
-    border: 3px solid black ;
-    height: 10%;
-    display: none;
-    white-space: nowrap;
-    border-radius: 15px;
-  }
   div.lab{
     background-color: blue;
     color: white;
@@ -70,15 +58,6 @@
   }
   #courses ul{
       list-style-type: none;
-  }
-  .alert{
-    background-color: red;
-    color:white;
-    display: inline-block;
-    margin: -3.55%;
-    padding: 3px 30px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
   }
   .btn{
     text-align: center;
@@ -98,7 +77,6 @@
     width: 252px;
     height: 224px;
     border: 3px outset white;
-    z-index: 1;
     box-shadow: 0px 0px 10px 1px gray ;
   }
   .btn:hover{
@@ -242,6 +220,72 @@
     right:0;
     border: 0px;
     position: absolute;
+  }
+
+  #section{
+    background-color: #444;
+    margin: 2%;
+    border: 3px solid black ;
+    height: 10%;
+    display: none;
+    border-radius: 15px;
+    width: 96%;
+  }
+  .secDets{
+    display: table-cell;
+    width: 50%;
+    padding: 5px;
+    background-color: lightblue;
+    padding-left: 15px;
+  }
+  .secDets ul{
+    display: table-cell;
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    padding-right: 50px;
+  }
+  .secButtons{
+    display: table-cell;
+    height: 100%;
+    width: 20%;
+  }
+  #section table{
+    width: 100%;
+  }
+  table.sec_days td{
+    border-top: 2px solid gray;
+  }
+  .section_btn{
+    display: block;
+    background-color: #444;
+    text-align: center;
+    color:white;
+    width:100%;
+    height:32.9%;
+    border: 1px solid black;
+  }
+  .section_btn:hover{
+    cursor: pointer;
+    background-color: #222;
+  }
+  .alert{
+    margin: -29px -15px;
+    padding: 4px;
+    background-color: red;
+    color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width:100%;
+  }
+  .alertLab{
+    margin: -29px 20px;
+    padding: 4px;
+    background-color: green;
+    color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width:100%;
   }
 </style>
 </head>
@@ -400,137 +444,31 @@
 
   <div id="allSections">
 
-    <div class="section" data-level="2" data-subject="cs">
-      <span class="alert">(!) Warning - Restricted to University 1 Students</span>
-      <ul>
+    <div id="section">
+      <span class="secDets">
+        <span class="alert">(!) Restricted to University 1 Students</span>
+        <span class="alertLab">+ Lab</span>
+        <ul>
         <li class="code">ARTS1110 A01</li>
         <li class="name">Introduction to University</li>
-        <li class="prof">Dr. P. rofessor</li>
-      </ul>
+        <li class="Prof">Dr. K. Proffesor</li>
+        </ul>
+        <ul>
+        <li>Capacity: 20/50</li>
+        <li>Waitlist: 0/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>10:00AM-11:00AM</td><td>105 Armes</td></tr>
+      </table>
+    </span>
+
+      <span class="secButtons">
+        <span class="section_btn">More Deatils</span>
+        <span class="section_btn">Add to Draft</span>
+        <span class="section_btn">Register</span>
+      </span>
     </div>
 
-    <div class="section" data-level="2" data-subject="cs">
-      <span class="alert">(!) Warning - You Already hold credit for COMP1010</span>
-      <ul>
-        <li class="code">COMP1010 A01</li>
-        <li class="name">Introduction to Computer Science</li>
-        <li class="prof">Dr. P. rofessor </li>
-      </ul>
-    </div>
-
-    <div class="lab" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP1010 B01</li>
-        <li class="name">Introduction to Computer Science</li>
-        <li class="prof">TBA</li>
-      </ul>
-    </div>
-
-    <div class="lab" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP1010 B02</li>
-        <li class="name">Introduction to Computer Science</li>
-        <li class="prof">TBA</li>
-      </ul>
-    </div>
-
-    <div class="lab" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP1010 B03</li>
-        <li class="name">Introduction to Computer Science</li>
-        <li class="prof">TBA</li>
-      </ul>
-    </div>
-
-    <div class="section"  data-level="2" data-subject="cs">
-      <span class="alert">(!) Warning - Section Full</span>
-      <ul>
-        <li class="code">COMP2140 A01</li>
-        <li class="name">Data structures & Algorithms</li>
-        <li class="prof">Dr. D. Instructington</li>
-      </ul>
-    </div>
-
-    <div class="section"  data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP2140 A02</li>
-        <li class="name">Data structures & Algorithms</li>
-        <li class="prof">Dr. C. Hillary</li>
-      </ul>
-    </div>
-
-    <div class="section" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP2140 A03</li>
-        <li class="name">Data structures & Algorithms</li>
-        <li class="prof">this is a prof name</li>
-      </ul>
-    </div>
-
-    <div class="lab" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP2140 B01</li>
-        <li class="name">Data structures & Algorithms</li>
-        <li class="prof">TBA</li>
-      </ul>
-    </div>
-
-    <div class="lab" data-level="2" data-subject="cs">
-      <ul>
-          <span class="alert">(!) Warning - Schedule Conflict</span>
-        <li class="code">COMP2140 B02</li>
-        <li class="name">Data structures & Algorithms</li>
-        <li class="prof">TBA</li>
-      </ul>
-    </div>
-
-    <div class="lab" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP2140 B03</li>
-        <li class="name">Data structures & Algorithms</li>
-        <li class="prof">TBA</li>
-      </ul>
-    </div>
-
-    <div class="section" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP3020 A01</li>
-        <li class="name">Human Computer Interaction I</li>
-        <li class="prof">Dr. Andrea Bunt</li>
-      </ul>
-    </div>
-
-    <div class="section" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">COMP3490 A01</li>
-        <li class="name">Computer Graphics I</li>
-        <li class="prof">Dr. Niel Bruce</li>
-      </ul>
-    </div>
-
-    <div class="section" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">MUSC1920 A01</li>
-        <li class="name">Rudiments of Music</li>
-        <li class="prof">A. Csordas</li>
-      </ul>
-    </div>
-
-    <div class="section" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">FILM1010 A01</li>
-        <li class="name">The Art of Film</li>
-        <li class="prof">C. Mauthe</li>
-      </ul>
-    </div>
-
-    <div class="section" data-level="2" data-subject="cs">
-      <ul>
-        <li class="code">FAAH1010 A01</li>
-        <li class="name">Introduction to Art History</li>
-        <li class="prof">Dr. A. Artsman</li>
-      </ul>
-    </div>
 
   </div>
 

@@ -206,9 +206,9 @@ function checkTime(i) {
 function notify(){
   var div = document.getElementById("notify");
   if(div.style.display=="block")
-    div.style.display="none";
+          $("#notify").slideUp("fast");
   else
-      div.style.display="block";
+            $("#notify").slideDown("fast");
 }
 </script>
 <script>

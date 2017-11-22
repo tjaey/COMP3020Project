@@ -14,7 +14,7 @@
   text-align: center;
   border: 1px solid green;
   padding: 1px;
-  border: 2px outset black;
+  border: 2px outset green;
 }
 #addDraft:hover{
   background-color: green;
@@ -26,7 +26,7 @@
   text-align: center;
   border: 1px solid red;
   padding: 1px;
-  border: 2px outset black;
+  border: 2px outset red;
 }
 #delDraft:hover{
   background-color: red;
@@ -39,9 +39,10 @@
   background-color: white;
 }
 #drafts{
-  background-color: #ccc;
+  background-color: #004A80;
   width:100%;
   bottom: 0;
+  color:white;
 }
 #drafts_wrapper{
   max-height: 10%;
@@ -67,11 +68,16 @@
   padding:5px;
 }
 #drafts .active {
-  background-color: #ccc;
+  background-color: lightblue;
   color: black;
 }
 #drafts .active a{
   color: black;
+}
+#head{
+  background-color: #003471;
+  color:white;
+  padding: 5px;
 }
 table{
   width: 100%;
@@ -101,4 +107,7 @@ th#day{
 }
 td{
   border-left: 1px solid black;
+}
+h1{
+  padding-left: 10px;
 }

@@ -1,0 +1,1 @@
+- Course details and remove button do not show up correctly in the 'timetable drafts' widgets.

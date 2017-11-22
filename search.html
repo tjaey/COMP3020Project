@@ -22,7 +22,7 @@ function startTime() {
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('txt').innerHTML = "Server Time: " + h + ":" + m + ":" + s + "\t\t";
+    document.getElementById('txt').innerHTML = "Current Time: " + h + ":" + m + ":" + s + "\t\t";
     var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
@@ -333,7 +333,7 @@ function notify(){
               <div id="notify">
                 <input type="checkbox">Email</input>
                 <input type="text"></input><br>
-                <input type="checkbox">Phone</input>
+                <input type="checkbox">Text/SMS</input>
                  <input type="text"></input><br>
                  <input type="checkbox">1 Week Before</input><br>
                  <input type="checkbox">24 Hours Before</input><br>

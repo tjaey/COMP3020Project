@@ -24,6 +24,10 @@
   margin-top: -22%;
   border-radius: 25px;
   border: 1px solid white;
+  z-index: 2;
+}
+#notify button{
+  color:black;
 }
 #menu {
     text-align: left ;

@@ -58,17 +58,6 @@ function notify(){
     padding-bottom: 30px;
     height: 100%;
   }
-  div.lab{
-    background-color: blue;
-    color: white;
-    padding-left: 30px;
-    margin: 0 2% 1% 8%;
-    border: 2px solid black ;
-    height: 1%;
-    display: none;
-    white-space: nowrap;
-    border-radius: 0px 20px 0px 20px;
-  }
   #courses ul{
       list-style-type: none;
   }
@@ -90,19 +79,20 @@ function notify(){
     background-position: center;
     width: 20%;
     height: 33.5%;
-    background-color: white;
+    background-color: lightblue;
 
-    border: 3px outset blue;
+    border: 6px outset #004A80;;
     border-radius: 20px;
     box-shadow: 0px 0px 5px 1px black ;
   }
   #bodyWrapper .btn:hover{
     cursor: pointer;
     border: 2px inset gray;
-    background-color: white;
+    background-color: #ccc;
   }
   #bodyWrapper .btn-drafts:hover{
-      border: 3px inset blue;
+      border: 6px inset blue;
+      background-color: #004A80;
   }
   #bodyWrapper .btn_reqs{
     background-color: #eeeedd;
@@ -250,7 +240,12 @@ function notify(){
     width: 50%;
     padding: 5px;
     background-color: lightblue;
+    border-radius: 16px 0px 0px 16px;
     padding-left: 15px;
+  }
+  .inLab{
+    background-color: #004A80;
+    color: white;
   }
   .secDets ul{
     display: table-cell;
@@ -305,13 +300,19 @@ function notify(){
     width:100%;
   }
   .alertLab{
-    margin: -29px 20px;
+    margin: -29px 10px;
     padding: 4px;
     background-color: green;
     color:white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     width:100%;
+  }
+  .noResults{
+    color: white;
+    padding: 1%;
+  }
+  div.lab{
   }
 </style>
 </head>
@@ -335,14 +336,15 @@ function notify(){
               8:00 AM | August 25th 2017<br>
               <div id="btn_notify" class="btn" onclick="notify()">Notify Me</div>
               <div id="notify">
-                <input type="checkbox">Email</input>
+                <input type="checkbox">Student Email</input><br>
+                <input type="checkbox">Other Email</input>
                 <input type="text"></input><br>
                 <input type="checkbox">Text/SMS</input>
                  <input type="text"></input><br>
                  <input type="checkbox">1 Week Before</input><br>
                  <input type="checkbox">24 Hours Before</input><br>
                  <input type="checkbox">1 Hour Before</input><br>
-                 <input type="button" value="Ok"></input>
+                 <input id="okbtn" type="button" value="Ok"></input>
               </div>
           </div>
           <div class="time">
@@ -487,8 +489,9 @@ function notify(){
       </form>
     </div>
 
-    <div class="section" data-level="0" data-subject="null" id="noResults">
-        <p> No courses Found. - Revise your search criteria</p>
+    <div id="section" data-level="0" data-subject="null" class="noResults">
+        <p> No courses Found. - Revise your search criteria or clear all search terms
+        using the link above the search bar.</p>
       </ul>
     </div>
 
@@ -497,7 +500,7 @@ function notify(){
     <div id="section">
       <span class="secDets">
         <span class="alert">(!) Restricted to University 1 Students</span>
-        <span class="alertLab">+ Lab</span>
+        <span class="alertLab">Lab sections: B01, B02, B03</span>
         <ul>
         <li class="code">ARTS1110 A01</li>
         <li class="name">Introduction to University</li>
@@ -511,6 +514,520 @@ function notify(){
         <tr><td>MWF</td><td>10:00AM-11:00AM</td><td>105 Armes</td></tr>
       </table>
     </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+          <span class="alert">(!) Restricted to University 1 Students</span>
+          <span class="alertLab">Lab sections: B04, B05, B06</span>
+          <ul>
+              <li class="code">ARTS1110 A02</li>
+              <li class="name">Introduction to University</li>
+              <li class="Prof">Dr. M. Burkette</li>
+          </ul>
+          <ul>
+              <li>Capacity: 40/50</li>
+              <li>Waitlist: 0/999</li>
+          </ul>
+          <table class="sec_days">
+              <tr><td>TR</td><td>11:00AM-12:00AM</td><td>105 Armes</td></tr>
+          </table>
+      </span>
+      <span class="secButtons">
+          <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+          <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+          <span class="section_btn regbtn">Register</span>
+      </span>
+  </div>
+
+  <div id="section" class="lab">
+    <span class="secDets inLab">
+      <ul>
+      <li class="code">ARTS1110 B01</li>
+      <li class="name">Introduction to University (Lab)</li>
+      <li class="Prof">TBA</li>
+      </ul>
+      <ul>
+      <li>Capacity: 20/30</li>
+      <li>Waitlist: 0/999</li>
+      </ul>
+    <table class="sec_days">
+      <tr><td>R</td><td>10:00AM-11:00AM</td><td>255 University College</td></tr>
+    </table>
+  </span>
+    <span class="secButtons">
+      <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+      <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+      <span class="section_btn regbtn">Register</span>
+    </span>
+  </div>
+  <div id="section" class="lab">
+    <span class="secDets inLab">
+      <ul>
+      <li class="code">ARTS1110 B02</li>
+      <li class="name">Introduction to University (Lab)</li>
+      <li class="Prof">TBA</li>
+      </ul>
+      <ul>
+      <li>Capacity: 20/30</li>
+      <li>Waitlist: 0/999</li>
+      </ul>
+    <table class="sec_days">
+      <tr><td>R</td><td>10:00AM-11:00AM</td><td>252 University College</td></tr>
+    </table>
+  </span>
+    <span class="secButtons">
+      <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+      <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+      <span class="section_btn regbtn">Register</span>
+    </span>
+  </div>
+
+  <div id="section" class="lab">
+    <span class="secDets inLab">
+      <ul>
+      <li class="code">ARTS1110 B03</li>
+      <li class="name">Introduction to University (Lab)</li>
+      <li class="Prof">TBA</li>
+      </ul>
+      <ul>
+      <li>Capacity: 20/30</li>
+      <li>Waitlist: 0/999</li>
+      </ul>
+    <table class="sec_days">
+      <tr><td>T</td><td>12:00PM-1:00PM</td><td>255 University College</td></tr>
+    </table>
+  </span>
+    <span class="secButtons">
+      <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+      <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+      <span class="section_btn regbtn">Register</span>
+    </span>
+  </div>
+
+    <div id="section">
+      <span class="secDets">
+        <span class="alert">(!) Student alerady holds credit for COMP1010</span>
+        <ul>
+        <li class="code">COMP1010 A01</li>
+        <li class="name">Introductory Computer Science</li>
+        <li class="Prof">G. Faucher</li>
+        </ul>
+        <ul>
+        <li>Capacity: 43/50</li>
+        <li>Waitlist: 0/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>12:00AM-12:50PM</td><td>255 Robert Schultz.</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <span class="alert">(!) Student alerady holds credit for COMP1010</span>
+        <ul>
+        <li class="code">COMP1010 A02</li>
+        <li class="name">Introductory Computer Science</li>
+        <li class="Prof">John Braico</li>
+        </ul>
+        <ul>
+        <li>Capacity: 60/60</li>
+        <li>Waitlist: 23/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>TR</td><td>10:00AM-11:45PM</td><td>100 St. Pauls College</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <span class="alert">(!) Student alerady holds credit for COMP1010</span>
+        <ul>
+        <li class="code">COMP1010 A03</li>
+        <li class="name">Introductory Computer Science</li>
+        <li class="Prof">John Braico</li>
+        </ul>
+        <ul>
+        <li>Capacity: 50/60</li>
+        <li>Waitlist: 21/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>2:30PM-3:20PM</td><td>100 St. Pauls College</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <ul>
+        <li class="code">COMP2130 A01</li>
+        <li class="name">Discrete Mathematics for Computer Science</li>
+        <li class="Prof">Ruppa. K. Tulsi</li>
+        </ul>
+        <ul>
+        <li>Capacity: 78/120</li>
+        <li>Waitlist: 45/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>2:30PM-3:20PM</td><td>105 Armes</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <ul>
+        <li class="code">COMP2080 A01</li>
+        <li class="name">Object Orientation</li>
+        <li class="Prof">Chad Hillary</li>
+        </ul>
+        <ul>
+        <li>Capacity: 78/120</li>
+        <li>Waitlist: 45/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>1:30PM-2:20PM</td><td>EITC-E2 140</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <ul>
+        <li class="code">COMP2080 A02</li>
+        <li class="name">Object Orientation</li>
+        <li class="Prof">Chad Hillary</li>
+        </ul>
+        <ul>
+        <li>Capacity: 90/120</li>
+        <li>Waitlist: 77/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>TR</td><td>1:00PM-2:20PM</td><td>EITC-E2 160</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <span class="alert">(!) Course is FULL</span>
+        <span class="alertLab">+ Lab</span>
+        <ul>
+        <li class="code">COMP2140 A01</li>
+        <li class="name">Data Structures & Algorithms</li>
+        <li class="Prof">Dr. E. Alderson</li>
+        </ul>
+        <ul>
+        <li>Capacity: 120/120</li>
+        <li>Waitlist: 27/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>TR</td><td>1:00PM-2:20PM</td><td>EITC-E2 160</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+              <span class="alertLab">+ Lab</span>
+        <ul>
+        <li class="code">COMP2140 A02</li>
+        <li class="name">Data Structures & Algorithms</li>
+        <li class="Prof">A. Csordas</li>
+        </ul>
+        <ul>
+        <li>Capacity: 59/120</li>
+        <li>Waitlist: 28/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>8:30AM-9:20AM</td><td>EITC-E3 150</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <span class="alert">(!) Time Conflict with already registered class</span>
+        <span class="alertLab">+ Lab</span>
+        <ul>
+        <li class="code">COMP2140 A03</li>
+        <li class="name">Data Structures & Algorithms</li>
+        <li class="Prof">Dr H. Rollins</li>
+        </ul>
+        <ul>
+        <li>Capacity: 99/120</li>
+        <li>Waitlist: 28/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>10:30AM-11:20AM</td><td>EITC-E2 165</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+              <span class="alertLab">+ Lab</span>
+        <ul>
+        <li class="code">COMP2140 A02</li>
+        <li class="name">Data Structures & Algorithms</li>
+        <li class="Prof">A. Csordas</li>
+        </ul>
+        <ul>
+        <li>Capacity: 59/120</li>
+        <li>Waitlist: 28/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>TR</td><td>11:30AM-12:40PM</td><td>130 Helen Glass</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section" class=.lab>
+      <span class="secDets inLab">
+        <ul>
+        <li class="code">COMP2140 B01</li>
+        <li class="name">Data Structures & Algorithms (Lab)</li>
+        <li class="Prof">TBA</li>
+        </ul>
+        <ul>
+        <li>Capacity: 20/30</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>M</td><td>11:30AM-12:20PM</td><td>EITC E2-420</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section" class=.lab>
+      <span class="secDets inLab">
+        <ul>
+        <li class="code">COMP2140 B02</li>
+        <li class="name">Data Structures & Algorithms (Lab)</li>
+        <li class="Prof">TBA</li>
+        </ul>
+        <ul>
+        <li>Capacity: 11/30</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>W</td><td>11:30AM-12:20PM</td><td>130 Helen Glass</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">EITC E2-420</span>
+      </span>
+    </div>
+
+    <div id="section" class=.lab>
+      <span class="secDets inLab">
+        <ul>
+        <li class="code">COMP2140 B03</li>
+        <li class="name">Data Structures & Algorithms (Lab)</li>
+        <li class="Prof">TBA</li>
+        </ul>
+        <ul>
+        <li>Capacity: 11/30</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>F</td><td>11:30AM-12:20PM</td><td>130 Helen Glass</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">EITC E2-420</span>
+      </span>
+    </div>
+
+    <div id="section" class=.lab>
+      <span class="secDets inLab">
+        <ul>
+        <li class="code">COMP2140 B04</li>
+        <li class="name">Data Structures & Algorithms (Lab)</li>
+        <li class="Prof">TBA</li>
+        </ul>
+        <ul>
+        <li>Capacity: 11/30</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>R</td><td>12:30AM-1:00PM</td><td>130 Helen Glass</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">EITC E2-420</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <ul>
+        <li class="code">COMP3020 A01</li>
+        <li class="name">Human Computer Interaction I</li>
+        <li class="Prof">J. Young</li>
+        </ul>
+        <ul>
+        <li>Capacity: 110/120</li>
+        <li>Waitlist: 67/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>9:30AM-10:20AM</td><td>EITC-E2 165</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <ul>
+        <li class="code">COMP3020 A02</li>
+        <li class="name">Human Computer Interaction I</li>
+        <li class="Prof">Andrea Bunt</li>
+        </ul>
+        <ul>
+        <li>Capacity: 90/120</li>
+        <li>Waitlist: 17/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>11:30AM-12:20AM</td><td>EITC-E2 167</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+    <div id="section">
+      <span class="secDets">
+        <ul>
+        <li class="code">COMP3490 A01</li>
+        <li class="name">Computer Graphics I</li>
+        <li class="Prof">Niel Bruce</li>
+        </ul>
+        <ul>
+        <li>Capacity: 110/120</li>
+        <li>Waitlist: 57/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>12:30AM-1:20PM</td><td>EITC-E2 167</td></tr>
+      </table>
+    </span>
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+
+<div id="section">
+    <span class="secDets">
+        <ul>
+            <li class="code">MATH1010 A01</li>
+            <li class="name">Intoductary Calculus</li>
+            <li class="Prof">Dr. M. Aukerman</li>
+        </ul>
+        <ul>
+            <li>Capacity: 52/120</li>
+            <li>Waitlist: 0/999</li>
+        </ul>
+        <table class="sec_days">
+            <tr><td>MWF</td><td>10:00AM-11:00AM</td><td>105 Armes</td></tr>
+        </table>
+    </span>
+    <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+    </span>
+</div>
+
+
+<div id="section">
+      <span class="secDets">
+        <ul>
+        <li class="code">MATH1110 A01</li>
+        <li class="name">Math in Numbers</li>
+        <li class="Prof">Dr. K. Proffesor</li>
+        </ul>
+        <ul>
+        <li>Capacity: 77/90</li>
+        <li>Waitlist: 0/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>11:00AM-12:00PM</td><td>105 MacChray</td></tr>
+      </table>
+    </span>
 
       <span class="secButtons">
         <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
@@ -518,6 +1035,81 @@ function notify(){
         <span class="section_btn regbtn">Register</span>
       </span>
     </div>
+
+    <div id="section">
+      <span class="secDets">
+        <span class="alert">(!) Restricted to Math Majors</span>
+        <ul>
+        <li class="code">MATH2150 A01</li>
+        <li class="name">Math About Hats</li>
+        <li class="Prof">Dr. K. Hatterr</li>
+        </ul>
+        <ul>
+        <li>Capacity: 49/55</li>
+        <li>Waitlist: 0/999</li>
+        </ul>
+      <table class="sec_days">
+        <tr><td>MWF</td><td>11:00AM-12:0pAM</td><td>520 St Johns</td></tr>
+      </table>
+    </span>
+
+      <span class="secButtons">
+        <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+        <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+        <span class="section_btn regbtn">Register</span>
+      </span>
+    </div>
+
+      <div id="section">
+           <span class="secDets">
+             <span class="alertLab">+ Lab</span>
+             <ul>
+             <li class="code">MATH3040 A01</li>
+             <li class="name">Mathematics Madness</li>
+             <li class="Prof">Dr. M. Hare</li>
+             </ul>
+             <ul>
+             <li>Capacity: 62/70</li>
+             <li>Waitlist: 0/999</li>
+             </ul>
+           <table class="sec_days">
+             <tr><td>MWF</td><td>9:30AM-10:50AM</td><td>511 St Johns</td></tr>
+           </table>
+         </span>
+
+           <span class="secButtons">
+             <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+             <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+             <span class="section_btn regbtn">Register</span>
+           </span>
+         </div>
+
+
+
+         <div id="section">
+           <span class="secDets">
+     	<span class="alert">(!) Restricted to Computer Science Majors</span>
+             <ul>
+             <li class="code">MATH3130 A01</li>
+             <li class="name">Math and Cats</li>
+             <li class="Prof">Dr. J. Cuddles</li>
+             </ul>
+             <ul>
+             <li>Capacity: 62/70</li>
+             <li>Waitlist: 0/999</li>
+             </ul>
+           <table class="sec_days">
+             <tr><td>MWF</td><td>1:00PM-2:00PM</td><td>420 EITC E2</td></tr>
+           </table>
+         </span>
+
+           <span class="secButtons">
+             <a class="nolink" href="" data-toggle="modal" data-target="#classModal2"><span class="section_btn">More Details</span></a>
+             <a class="nolink" herf="" data-toggle="modal" data-target="#myModal"><span class="section_btn">Add to Draft</span></a>
+             <span class="section_btn regbtn">Register</span>
+           </span>
+         </div>
+
 
 
   </div>

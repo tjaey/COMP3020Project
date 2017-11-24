@@ -316,6 +316,11 @@ overflow: hidden;
 #contentWrapper li.h{
   color:black;
 }
+#deets2130 td{
+  padding-left: 5%;
+  border-left: 2px solid #ddd;
+  width: 50%;
+}
 #confirm{
   padding: 5px;
   background-color: white;
@@ -331,6 +336,9 @@ overflow: hidden;
   width: 50%;
   text-align: center;
   cursor: pointer;
+}
+.but2130{
+  margin: 0 auto;
 }
 </style>
 </head>
@@ -353,14 +361,15 @@ overflow: hidden;
             8:00 AM | August 25th 2017<br>
             <div id="btn_notify" class="btn" onclick="notify()">Notify Me</div>
             <div id="notify">
-              <input type="checkbox">Email</input>
+              <input type="checkbox">Student Email</input><br>
+              <input type="checkbox">Other Email</input>
               <input type="text"></input><br>
               <input type="checkbox">Text/SMS</input>
                <input type="text"></input><br>
                <input type="checkbox">1 Week Before</input><br>
                <input type="checkbox">24 Hours Before</input><br>
                <input type="checkbox">1 Hour Before</input><br>
-               <input type="button" value="Ok"></input>
+               <input id="okbtn" type="button" value="Ok"></input>
             </div>
         </div>
         <div class="time">
@@ -423,8 +432,8 @@ overflow: hidden;
           <script src="classDetails/dropCourses.js"></script>
           <h1>COMP 2130: A01</h1>
           <span>Discrete Math for Computer Science</span><br>
-          <span>CRN: 101567</span><br>
-          <table>
+          <span>CRN: 101567</span><br><br>
+          <table id="deets2130">
             <tr>
               <th>Instructor:</th>
               <td>Dr. John Smith</td>
@@ -444,11 +453,8 @@ overflow: hidden;
               <td>105 Armes</td>
             </tr>
               <tr>
-                <th>CRN: </th>
-                <td>51874</td>
-              </tr>
-              <tr>
-                <th>3 Credits</th>
+                <th>Credits</th>
+                <td>3</td>
               </tr>
               <tr>
                 <th>Attributes:</th>
@@ -464,7 +470,7 @@ overflow: hidden;
             <br><br>
             <div class="modalbtn" onclick="dropped();" style="margin: 0 auto;">Confrim</div>
           </div>
-          <div class="modalbtn" onclick="drop();"id="drop">Drop Course</div>
+          <div class="modalbtn but2130" onclick="drop();"id="drop">Drop Course</div>
         </div>
       </div>
     </div>

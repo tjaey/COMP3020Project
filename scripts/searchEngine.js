@@ -11,9 +11,9 @@ function searchEngine() {
   getRidofSplash();
 
 
-  var noResults = document.getElementById("noResults");
+  var noResults = document.getElementsByClassName("noResults");
   var notFound = true;
-  noResults.style.display = "none";
+  noResults[0].style.display = "none";
 
   if(filter){
   //containerDiv.style.display = "block";
@@ -55,10 +55,10 @@ function searchEngine() {
   }
 
   if(notFound){
-    noResults.style.display = "table";
+    noResults[0].style.display = "table";
   }
   else{
-    noResults.style.display = "none";
+    noResults[0].style.display = "none";
   }
 
 }
@@ -96,8 +96,8 @@ function applyAll(){
     innerDivs[i].style.display = "table";
   }
   getRidofSplash();
-  var noResults = document.getElementById("noResults");
-  noResults.style.display = "none";
+  var noResults = document.getElementsByClassName("noResults");
+  noResults[0].style.display = "none";
 }
 
 function applyCriteria(criteria){
@@ -124,8 +124,8 @@ function applyCriteria(criteria){
     }
   }
     getRidofSplash();
-    var noResults = document.getElementById("noResults");
-    noResults.style.display = "none";
+    var noResults = document.getElementsByClassName("noResults");
+    noResults[0].style.display = "none";
 }
 
 function putCoursesBox(){
